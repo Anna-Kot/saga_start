@@ -1,19 +1,16 @@
-import { useSelector, useDispatch } from "react-redux/es/exports";
+import { useDispatch } from 'react-redux/es/exports';
 
-import Posts from "./Posts";
-
-import "./App.css";
+import './App.css';
+import PostsList from './components/PostsList';
+import { loadPosts } from './store/post/actions';
 
 function App() {
-  const store = useSelector((store) => store);
   const dispatch = useDispatch();
-
-  console.log(store);
 
   return (
     <div>
-      <button onClick={() => dispatch({ type: "LOAD_DATA" })}>click me</button>
-      <Posts store={store} />
+      <button onClick={() => dispatch(loadPosts())}>click me</button>
+      <PostsList />
     </div>
   );
 }
