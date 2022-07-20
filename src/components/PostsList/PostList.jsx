@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 
 import PostItem from '../PostItem';
 
+import * as s from './PostLists.styled';
+
 function PostsList() {
   const posts = useSelector(state => state.posts);
   const loading = useSelector(state => state.loading);
@@ -10,15 +12,15 @@ function PostsList() {
   const [showBody, setShowBody] = useState(false);
 
   const handleShowBody = () => setShowBody(!showBody);
+  console.log(posts);
 
   return (
     <div>
-      {loading && <h1>...loading</h1>}
+      {loading && <s.LoadingText>...loading</s.LoadingText>}
       <button onClick={handleShowBody}>{!showBody ? 'Show' : 'Hide'} Body Data</button>
-      <table>
+      <s.TableWrapper>
         <thead>
           <tr>
-            <th>UserId</th>
             <th>Id</th>
             <th>Title</th>
             {showBody && <th>Body</th>}
@@ -29,7 +31,7 @@ function PostsList() {
             <PostItem key={post.id} setShowBody={setShowBody} post={post} showBody={showBody} />
           ))}
         </tbody>
-      </table>
+      </s.TableWrapper>
     </div>
   );
 }

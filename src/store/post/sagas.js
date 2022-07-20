@@ -1,13 +1,15 @@
 import { call, takeEvery, put } from 'redux-saga/effects';
+import axios from 'axios';
+
 import { setPosts } from './actions';
 import { LOAD_POSTS } from './types';
 
-async function getPosts() {
-  const request = await fetch('https://jsonplaceholder.typicode.com/posts');
+function getPosts() {
+  // const request = await fetch('https://jsonplaceholder.typicode.com/posts');
+  // const data = await request.json();
+  // return data;
 
-  const data = await request.json();
-
-  return data;
+  return axios.get('https://jsonplaceholder.typicode.com/posts').then(response => response.data);
 }
 
 export function* workerSaga() {
