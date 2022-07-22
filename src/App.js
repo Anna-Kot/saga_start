@@ -1,6 +1,5 @@
 import { useDispatch } from 'react-redux/es/exports';
 
-import './App.css';
 import PostsList from './components/PostsList';
 import { loadPosts } from './store/post/actions';
 
