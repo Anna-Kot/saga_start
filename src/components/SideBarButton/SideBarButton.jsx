@@ -17,7 +17,12 @@ const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColo
   }
 
   if (type === 'MarkerButton') {
-    return <s.ButtonContainer></s.ButtonContainer>;
+    return (
+      <s.ButtonContainer>
+        <s.CircleIcon style={{ background: markerColor }} />
+        <s.ButtonText>{text}</s.ButtonText>
+      </s.ButtonContainer>
+    );
   }
 
   return null;

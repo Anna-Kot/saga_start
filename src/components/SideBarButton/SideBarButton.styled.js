@@ -13,11 +13,30 @@ export const ButtonContainer = styled.button`
   cursor: pointer;
 
   margin-bottom: 8px;
+
+  &:nth-of-type(2) {
+    margin-bottom: 35px;
+  }
+
+  &:last-of-type {
+    margin-top: 35px;
+  }
+
+  &:hover {
+    background: #ffffff;
+  }
 `;
 
 export const ButtonIcon = styled.span`
   display: inline-block;
   max-width: 20px;
+`;
+
+export const CircleIcon = styled.div`
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 2px 3px 0px 5px;
 `;
 
 export const ButtonText = styled.div`

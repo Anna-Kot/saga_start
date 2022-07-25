@@ -14,6 +14,7 @@ export const BorderWrraper = styled.div`
   &:hover {
     border: 1px solid black;
   }
+
   p {
     font: 400 16px/20px 'Montserrat';
     color: #7e7e7e;
@@ -22,6 +23,7 @@ export const BorderWrraper = styled.div`
     left: 15px;
     margin: 0;
   }
+
   h2 {
     font: 700 16px/20px 'Montserrat';
     color: #212121;
@@ -31,31 +33,14 @@ export const BorderWrraper = styled.div`
     text-transform: uppercase;
     margin: 0;
   }
-  button {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    top: 11px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    padding: 3px 0px;
+`;
 
-    &:hover {
-      background-color: #d3eae1;
-      border-radius: 5px;
-    }
-    &:nth-of-type(1) {
-      right: 74px;
-    }
-    &:nth-of-type(2) {
-      right: 42px;
-    }
-    &:nth-of-type(3) {
-      right: 12px;
-    }
-  }
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 87px;
+  height: 24px;
+  position: absolute;
+  top: 11px;
+  right: 11px;
 `;
