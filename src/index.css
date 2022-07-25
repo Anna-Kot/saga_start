@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lato:wght@400;700&family=Montserrat:wght@300;400;700&display=swap');
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  /* font-family: 'Inter', sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}

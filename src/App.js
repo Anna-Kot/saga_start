@@ -1,16 +1,21 @@
 import { useDispatch } from 'react-redux/es/exports';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import PostsList from './components/PostsList';
+import PostsPage from './pages/PostsPage';
+import SideBar from './containers/SideBar';
 import { loadPosts } from './store/post/actions';
+
+import * as s from './App.styled';
 
 function App() {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <button onClick={() => dispatch(loadPosts())}>click me</button>
-      <PostsList />
-    </div>
+    <s.BodyWrapper>
+      {/* <button onClick={() => dispatch(loadPosts())}>click me</button> */}
+      <SideBar />
+      <PostsPage onLoad={() => dispatch(loadPosts())} />
+    </s.BodyWrapper>
   );
 }
 
