@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const MainWrraper = styled.div`
   width: 1639px;
   height: 100%;
-  background-color: #f5f5f5;
+  background-color: #ffffff;
 `;
 export const PostsColumn = styled.div`
   width: 930px;

@@ -1,12 +1,18 @@
 import React from 'react';
 
 import * as s from './SideBar.styled';
+import SideBarButton from '../../components/SideBarButton';
+import { ReactComponent as ListBarIcon } from '../../assets/svg/ListBar.svg';
+import { ReactComponent as ClipIcon } from '../../assets/svg/Clip.svg';
 
 const SideBar = () => {
   return (
     <s.MainWrraper>
+      <SideBarButton IconComponent={ListBarIcon} type="IconButton" text="All Posts" />
+      <SideBarButton IconComponent={ClipIcon} type="IconButton" text="Read List" />
+
       {/* SideBar */}
-      <s.AllPostsButton>
+      {/* <s.AllPostsButton>
         <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M11.4 5H5.6C5.048 5 5 5.447 5 6C5 6.553 5.048 7 5.6 7H11.4C11.952 7 12 6.553 12 6C12 5.447 11.952 5 11.4 5ZM13.4 10H5.6C5.048 10 5 10.447 5 11C5 11.553 5.048 12 5.6 12H13.4C13.952 12 14 11.553 14 11C14 10.447 13.952 10 13.4 10ZM5.6 2H13.4C13.952 2 14 1.553 14 1C14 0.447 13.952 0 13.4 0H5.6C5.048 0 5 0.447 5 1C5 1.553 5.048 2 5.6 2ZM2.4 5H0.6C0.0479999 5 0 5.447 0 6C0 6.553 0.0479999 7 0.6 7H2.4C2.952 7 3 6.553 3 6C3 5.447 2.952 5 2.4 5ZM2.4 10H0.6C0.0479999 10 0 10.447 0 11C0 11.553 0.0479999 12 0.6 12H2.4C2.952 12 3 11.553 3 11C3 10.447 2.952 10 2.4 10ZM2.4 0H0.6C0.0479999 0 0 0.447 0 1C0 1.553 0.0479999 2 0.6 2H2.4C2.952 2 3 1.553 3 1C3 0.447 2.952 0 2.4 0Z"
@@ -26,7 +32,7 @@ const SideBar = () => {
         <div className="number-lists">15</div>
       </s.ReadListButton>
       <s.PoliticsButton>
-        <s.Marker></s.Marker>
+        <s.Marker />
         <h4>Politics</h4>
       </s.PoliticsButton>
       <s.EngineeringButton>
@@ -43,7 +49,7 @@ const SideBar = () => {
           <path d="M1 8H15" stroke="#868686" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <h4>Add new post</h4>
-      </s.AddPostButton>
+      </s.AddPostButton> */}
     </s.MainWrraper>
   );
 };
