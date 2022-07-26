@@ -6,9 +6,9 @@ export const TitleWrapper = styled.div`
   border-bottom: 1px solid #d2d0d0;
   font: 700 32px/39px 'Montserrat';
   color: black;
-  margin-top: 70px;
-  margin-left: 229px;
+  /* margin-top: 70px; */
+  /* margin-left: 229px; */
   padding-bottom: 21px;
-  margin-bottom: 61px;
+  margin-bottom: 17px;
 `;
 //   border-bottom: 1px solid #ececec;

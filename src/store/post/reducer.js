@@ -1,4 +1,4 @@
-import { LOAD_POSTS, SET_POSTS } from './types';
+import { LOAD_POSTS, SET_POSTS, LOAD_CURRENT_POST, SET_CURRENT_POST } from './types';
 
 const initialState = {
   posts: [],
@@ -16,6 +16,19 @@ export default function reducer(state = initialState, action) {
       };
     }
     case LOAD_POSTS: {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+    case SET_CURRENT_POST: {
+      return {
+        ...state,
+        openedPost: action.payload,
+        loading: false,
+      };
+    }
+    case LOAD_CURRENT_POST: {
       return {
         ...state,
         loading: true,

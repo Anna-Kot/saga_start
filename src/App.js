@@ -3,7 +3,7 @@ import { Routes, Route, Redirect, Navigate } from 'react-router-dom';
 
 import PostsPage from './pages/PostsPage';
 import CurrentPost from './pages/CurrentPost/CurrentPost';
-import { loadPosts } from './store/post/actions';
+import { loadPosts, loadCurrebtPost } from './store/post/actions';
 
 import * as s from './styles/App.styled';
 
@@ -28,7 +28,7 @@ function App() {
           exact
           element={
             <>
-              <CurrentPost />
+              <CurrentPost onLoad={() => dispatch(loadCurrebtPost())} />
             </>
           }
         />

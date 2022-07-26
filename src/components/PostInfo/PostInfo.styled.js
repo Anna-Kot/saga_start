@@ -11,8 +11,8 @@ export const BorderWrraper = styled.div`
   position: relative;
   letter-spacing: 0.2px;
 
-  &:hover {
-    border: 1px solid black;
+  &:nth-of-type(1) {
+    margin-top: 44px;
   }
 
   p {
@@ -33,14 +33,20 @@ export const BorderWrraper = styled.div`
     text-transform: uppercase;
     margin: 0;
   }
-`;
 
-export const ButtonsContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 87px;
-  height: 24px;
-  position: absolute;
-  top: 11px;
-  right: 11px;
+  .editing-button {
+    display: none;
+  }
+
+  &:hover {
+    border: 1px solid black;
+
+    .editing-button {
+      display: flex;
+    }
+  }
+
+  .tag-wrapper {
+    margin-left: 15px;
+  }
 `;
