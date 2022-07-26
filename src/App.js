@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux/es/exports';
+import { Routes, Route, Redirect, Navigate } from 'react-router-dom';
 
 import PostsPage from './pages/PostsPage';
-import SideBar from './containers/SideBar';
+import CurrentPost from './pages/CurrentPost/CurrentPost';
 import { loadPosts } from './store/post/actions';
 
 import * as s from './styles/App.styled';
@@ -11,9 +12,27 @@ function App() {
 
   return (
     <s.BodyWrapper>
-      {/* <button onClick={() => dispatch(loadPosts())}>click me</button> */}
-      <SideBar />
-      <PostsPage onLoad={() => dispatch(loadPosts())} />
+      <Routes>
+        <Route path="/" exact element={<Navigate to="/posts" />} />
+        <Route
+          path="/posts"
+          exact
+          element={
+            <>
+              <PostsPage onLoad={() => dispatch(loadPosts())} />
+            </>
+          }
+        />
+        <Route
+          path="/posts/:id"
+          exact
+          element={
+            <>
+              <CurrentPost />
+            </>
+          }
+        />
+      </Routes>
     </s.BodyWrapper>
   );
 }
