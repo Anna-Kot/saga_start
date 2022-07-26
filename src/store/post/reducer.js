@@ -2,6 +2,7 @@ import { LOAD_POSTS, SET_POSTS } from './types';
 
 const initialState = {
   posts: [],
+  openedPost: null,
   loading: false,
 };
 
