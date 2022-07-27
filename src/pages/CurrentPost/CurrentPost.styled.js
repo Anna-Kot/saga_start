@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SILVER } from '../../styles/Globals.styled';
 
 export const MainWrraper = styled.div`
   position: relative;
@@ -18,7 +19,7 @@ export const MainWrraper = styled.div`
     text-align: justify;
     font: 500 24px/36px 'Montserrat';
     letter-spacing: 0.2px;
-    color: #7b8397;
+    color: ${SILVER};
     margin-top: 55px;
   }
 `;

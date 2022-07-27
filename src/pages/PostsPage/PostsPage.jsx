@@ -9,7 +9,7 @@ import SideBar from '../../containers/SideBar';
 import * as s from './PostsPage.styled';
 
 const PostsPage = ({ onLoad }) => {
-  const posts = useSelector(state => state.posts);
+  const posts = useSelector(state => state.Posts.posts);
   console.log(posts);
 
   const navigate = useNavigate();

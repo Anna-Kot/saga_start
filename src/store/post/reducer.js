@@ -4,9 +4,10 @@ const initialState = {
   posts: [],
   openedPost: null,
   loading: false,
+  loadingCurrentPost: false,
 };
 
-export default function reducer(state = initialState, action) {
+export default function postsReducer(state = initialState, action) {
   switch (action.type) {
     case SET_POSTS: {
       return {
@@ -25,13 +26,13 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         openedPost: action.payload,
-        loading: false,
+        loadingCurrentPost: false,
       };
     }
     case LOAD_CURRENT_POST: {
       return {
         ...state,
-        loading: true,
+        loadingCurrentPost: true,
       };
     }
     default:

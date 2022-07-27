@@ -3,7 +3,7 @@ import { Routes, Route, Redirect, Navigate } from 'react-router-dom';
 
 import PostsPage from './pages/PostsPage';
 import CurrentPost from './pages/CurrentPost/CurrentPost';
-import { loadPosts, loadCurrebtPost } from './store/post/actions';
+import { loadPosts } from './store/post/actions';
 
 import * as s from './styles/App.styled';
 
@@ -14,24 +14,8 @@ function App() {
     <s.BodyWrapper>
       <Routes>
         <Route path="/" exact element={<Navigate to="/posts" />} />
-        <Route
-          path="/posts"
-          exact
-          element={
-            <>
-              <PostsPage onLoad={() => dispatch(loadPosts())} />
-            </>
-          }
-        />
-        <Route
-          path="/posts/:id"
-          exact
-          element={
-            <>
-              <CurrentPost onLoad={() => dispatch(loadCurrebtPost())} />
-            </>
-          }
-        />
+        <Route path="/posts" exact element={<PostsPage onLoad={() => dispatch(loadPosts())} />} />
+        <Route path="/posts/:id" exact element={<CurrentPost />} />
       </Routes>
     </s.BodyWrapper>
   );

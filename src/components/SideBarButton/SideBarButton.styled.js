@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BLUE, LIGHT_BLACK, WHITE } from '../../styles/Globals.styled';
 
 export const ButtonContainer = styled.button`
   width: 100%;
@@ -23,7 +24,7 @@ export const ButtonContainer = styled.button`
   }
 
   &:hover {
-    background: #ffffff;
+    background: ${WHITE};
   }
 `;
 
@@ -43,5 +44,18 @@ export const ButtonText = styled.div`
   margin-left: 20px;
   font: 700 16px/19px 'Lato';
   letter-spacing: 0.2px;
-  color: #212121;
+  color: ${LIGHT_BLACK};
+`;
+
+export const NumberOfList = styled.div`
+  width: auto;
+  height: 24px;
+  text-align: center;
+  color: ${WHITE};
+  background-color: ${BLUE};
+  font: 700 14px/17px 'Inter';
+  padding: 3px 7px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-left: 22px;
 `;

@@ -10,7 +10,7 @@ export const setPosts = payload => ({
   payload,
 });
 
-export const loadCurrebtPost = payload => ({
+export const loadCurrentPost = payload => ({
   type: LOAD_CURRENT_POST,
   payload,
 });

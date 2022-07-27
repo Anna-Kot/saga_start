@@ -16,7 +16,8 @@ function* loadAllPostsWorker() {
 
 function* loadCurrentPostWorker(action) {
   try {
-    const { data } = yield call(getSinglePostRequest, action.id);
+    console.log(action);
+    const { data } = yield call(getSinglePostRequest, action.payload.id);
     yield put(setCurrentPost(data));
   } catch (error) {
     console.log(error);

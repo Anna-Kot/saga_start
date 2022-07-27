@@ -1,18 +1,21 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux/es/exports';
+import { useSelector, useDispatch } from 'react-redux/es/exports';
 
 import SideBar from '../../containers/SideBar';
 import Title from '../../components/Title';
 import EditingButtonContainer from '../../components/EditingButtonContainer/EditingButtonContainer';
 import TagsContainer from '../../components/TagsContainer/TagsContainer';
+import { loadCurrentPost } from '../../store/post/actions';
 
 import * as s from './CurrentPost.styled';
 
 import { ReactComponent as ArrowBack } from '../../assets/svg/ArrowBack.svg';
 
 const CurrentPost = ({ onLoad }) => {
-  const post = useSelector(state => state.openedPost);
+  const dispatch = useDispatch();
+  const post = useSelector(state => state.Posts.openedPost);
+
   console.log(post);
 
   const navigate = useNavigate();
@@ -23,9 +26,19 @@ const CurrentPost = ({ onLoad }) => {
   // const params = useParams();
   // console.log(params);
 
+  const handleLoadSinglePost = id => {
+    // const payload = {
+    //   postId: id,
+    // };
+
+    // dispatch(loadCurrentPost(payload));
+
+    dispatch(loadCurrentPost({ id }));
+  };
+
   useEffect(() => {
-    onLoad();
-  }, [id]);
+    handleLoadSinglePost(id);
+  }, []);
 
   return (
     <>
@@ -34,7 +47,7 @@ const CurrentPost = ({ onLoad }) => {
         <ArrowBack className="arrow-back" onClick={() => navigate('/posts')} />
         <Title />
         <s.ButtonWrraper>
-          <TagsContainer></TagsContainer>
+          <TagsContainer tagsList={post?.tags}></TagsContainer>
           <EditingButtonContainer></EditingButtonContainer>
         </s.ButtonWrraper>
         <p>

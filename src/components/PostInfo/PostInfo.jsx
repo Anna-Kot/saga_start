@@ -8,7 +8,7 @@ import * as s from '../PostInfo/PostInfo.styled';
 const PostInfo = ({ post, handleOpenPostById }) => {
   return (
     <s.BorderWrraper onClick={() => handleOpenPostById(post.id)}>
-      <TagsContainer post={post}></TagsContainer>
+      <TagsContainer tagsList={post?.tags}></TagsContainer>
       <h2>{post.title}</h2>
       <EditingButtonContainer></EditingButtonContainer>
     </s.BorderWrraper>

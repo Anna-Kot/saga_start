@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { LIGHT_BLACK } from '../../styles/Globals.styled';
 
 export const BorderWrraper = styled.div`
   width: 900px;
   height: 88px;
-  border: 1px solid #d2d0d0;
+  border: 2px solid #f3f3f3;
   border-radius: 10px;
   margin-bottom: 20px;
   box-sizing: border-box;
@@ -15,18 +16,9 @@ export const BorderWrraper = styled.div`
     margin-top: 44px;
   }
 
-  p {
-    font: 400 16px/20px 'Montserrat';
-    color: #7e7e7e;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    margin: 0;
-  }
-
   h2 {
     font: 700 16px/20px 'Montserrat';
-    color: #212121;
+    color: ${LIGHT_BLACK};
     position: absolute;
     top: 51px;
     left: 15px;
@@ -39,7 +31,7 @@ export const BorderWrraper = styled.div`
   }
 
   &:hover {
-    border: 1px solid black;
+    border: 2px solid #cdcdcd;
 
     .editing-button {
       display: flex;
