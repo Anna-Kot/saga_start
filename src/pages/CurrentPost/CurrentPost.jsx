@@ -45,17 +45,12 @@ const CurrentPost = ({ onLoad }) => {
       <SideBar />
       <s.MainWrraper>
         <ArrowBack className="arrow-back" onClick={() => navigate('/posts')} />
-        <Title />
+        <Title title={post?.title} />
         <s.ButtonWrraper>
           <TagsContainer tagsList={post?.tags}></TagsContainer>
           <EditingButtonContainer></EditingButtonContainer>
         </s.ButtonWrraper>
-        <p>
-          Dave wasn't exactly sure how he had ended up in this predicament. He ran through all the events that had lead
-          to this current situation and it still didn't make sense. He wanted to spend some time to try and make sense
-          of it all, but he had higher priorities at the moment. The first was how to get out of his current situation
-          of being naked in a tree with snow falling all around and no way for him to get down.
-        </p>
+        <p>{post?.body}</p>
       </s.MainWrraper>
     </>
   );

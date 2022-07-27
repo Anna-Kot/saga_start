@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import * as s from './SideBar.styled';
 import SideBarButton from '../../components/SideBarButton';
@@ -7,6 +8,7 @@ import { ReactComponent as ClipIcon } from '../../assets/svg/Clip.svg';
 import { ReactComponent as PlusPost } from '../../assets/svg/PlusPost.svg';
 
 const SideBar = () => {
+  const navigate = useNavigate();
   return (
     <s.MainWrraper>
       <SideBarButton IconComponent={ListBarIcon} type="IconButton" text="All Posts" />

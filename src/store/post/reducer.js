@@ -5,6 +5,7 @@ const initialState = {
   openedPost: null,
   loading: false,
   loadingCurrentPost: false,
+  countOfList: 0,
 };
 
 export default function postsReducer(state = initialState, action) {

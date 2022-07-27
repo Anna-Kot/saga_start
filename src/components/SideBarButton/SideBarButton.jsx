@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import * as s from './SideBarButton.styled';
 
@@ -7,10 +8,15 @@ import * as s from './SideBarButton.styled';
   MarkerButton
 */
 const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColor = '' }) => {
+  const navigate = useNavigate();
   if (type === 'IconButton') {
     if (text === 'Read List') {
       return (
-        <s.ButtonContainer>
+        <s.ButtonContainer
+          onClick={() => {
+            navigate('/readlist');
+          }}
+        >
           <IconComponent />
           <s.ButtonText>{text}</s.ButtonText>
           <s.NumberOfList>15</s.NumberOfList>
@@ -26,7 +32,11 @@ const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColo
       );
     }
     return (
-      <s.ButtonContainer>
+      <s.ButtonContainer
+        onClick={() => {
+          navigate('/posts');
+        }}
+      >
         <IconComponent />
         <s.ButtonText>{text}</s.ButtonText>
       </s.ButtonContainer>

@@ -25,7 +25,7 @@ const PostsPage = ({ onLoad }) => {
       <SideBar />
       <s.MainWrraper>
         {/* PostsPage */}
-        <Title />
+        <Title title="All Posts" />
         <s.PostsColumn>
           {posts.map(post => (
             <PostInfo key={post.id} post={post} handleOpenPostById={handleOpenPostById} />
