@@ -12,7 +12,7 @@ function PostsList() {
   const [showBody, setShowBody] = useState(false);
 
   const handleShowBody = () => setShowBody(!showBody);
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import * as s from './SideBarButton.styled';
@@ -7,19 +8,17 @@ import * as s from './SideBarButton.styled';
   IconButton
   MarkerButton
 */
-const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColor = '' }) => {
+const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColor = '', onClickHandler }) => {
+  const count = useSelector(state => state.Posts.countOfList);
+  // console.log(count);
   const navigate = useNavigate();
   if (type === 'IconButton') {
     if (text === 'Read List') {
       return (
-        <s.ButtonContainer
-          onClick={() => {
-            navigate('/readlist');
-          }}
-        >
+        <s.ButtonContainer onClick={onClickHandler}>
           <IconComponent />
           <s.ButtonText>{text}</s.ButtonText>
-          <s.NumberOfList>15</s.NumberOfList>
+          <s.NumberOfList>{count}</s.NumberOfList>
         </s.ButtonContainer>
       );
     }
@@ -32,11 +31,7 @@ const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColo
       );
     }
     return (
-      <s.ButtonContainer
-        onClick={() => {
-          navigate('/posts');
-        }}
-      >
+      <s.ButtonContainer onClick={onClickHandler}>
         <IconComponent />
         <s.ButtonText>{text}</s.ButtonText>
       </s.ButtonContainer>

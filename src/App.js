@@ -15,7 +15,7 @@ function App() {
     <s.BodyWrapper>
       <Routes>
         <Route path="/" exact element={<Navigate to="/posts" />} />
-        <Route path="/posts" exact element={<PostsPage onLoad={() => dispatch(loadPosts())} />} />
+        <Route path="/posts" exact element={<PostsPage />} />
         <Route path="/posts/:id" exact element={<CurrentPost />} />
         <Route path="/readlist" exact element={<ReadList />} />
       </Routes>

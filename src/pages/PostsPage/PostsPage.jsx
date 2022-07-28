@@ -1,23 +1,38 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import PostInfo from '../../components//PostInfo';
 import Title from '../../components/Title';
 import SideBar from '../../containers/SideBar';
+import { loadPosts } from '../../store/post/actions';
 
 import * as s from './PostsPage.styled';
 
-const PostsPage = ({ onLoad }) => {
+const PostsPage = () => {
+  const dispatch = useDispatch();
   const posts = useSelector(state => state.Posts.posts);
-  console.log(posts);
+  // console.log(posts);
+  const handleLoadPosts = id => {
+    // const payload = {
+    //   postId: id,
+    // };
+
+    // dispatch(loadCurrentPost(payload));
+
+    dispatch(loadPosts());
+  };
+
+  useEffect(() => {
+    handleLoadPosts();
+  }, []);
 
   const navigate = useNavigate();
 
   const handleOpenPostById = id => navigate(`/posts/${id}`);
 
   useEffect(() => {
-    onLoad();
+    handleLoadPosts();
   }, []);
 
   return (

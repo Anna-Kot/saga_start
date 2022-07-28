@@ -11,8 +11,18 @@ const SideBar = () => {
   const navigate = useNavigate();
   return (
     <s.MainWrraper>
-      <SideBarButton IconComponent={ListBarIcon} type="IconButton" text="All Posts" />
-      <SideBarButton IconComponent={ClipIcon} type="IconButton" text="Read List" />
+      <SideBarButton
+        IconComponent={ListBarIcon}
+        type="IconButton"
+        text="All Posts"
+        onClickHandler={() => navigate('/posts')}
+      />
+      <SideBarButton
+        IconComponent={ClipIcon}
+        type="IconButton"
+        text="Read List"
+        onClickHandler={() => navigate('/readlist')}
+      />
 
       <SideBarButton markerColor="#42b883" type="MarkerButton" text="Classic" />
       <SideBarButton markerColor="#64c4ed" type="MarkerButton" text="English" />

@@ -16,12 +16,12 @@ const CurrentPost = ({ onLoad }) => {
   const dispatch = useDispatch();
   const post = useSelector(state => state.Posts.openedPost);
 
-  console.log(post);
+  // console.log(post);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   // const params = useParams();
   // console.log(params);

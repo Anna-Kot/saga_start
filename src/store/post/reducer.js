@@ -1,4 +1,13 @@
-import { LOAD_POSTS, SET_POSTS, LOAD_CURRENT_POST, SET_CURRENT_POST } from './types';
+import {
+  LOAD_POSTS,
+  SET_POSTS,
+  LOAD_CURRENT_POST,
+  SET_CURRENT_POST,
+  SET_READ_LIST_POST,
+  SET_COUNT_READ_LIST_POST,
+  DELETE_COUNT_READ_LIST_POST,
+  DELETE_READ_LIST_POST,
+} from './types';
 
 const initialState = {
   posts: [],
@@ -6,6 +15,7 @@ const initialState = {
   loading: false,
   loadingCurrentPost: false,
   countOfList: 0,
+  readListPosts: [],
 };
 
 export default function postsReducer(state = initialState, action) {
@@ -34,6 +44,31 @@ export default function postsReducer(state = initialState, action) {
       return {
         ...state,
         loadingCurrentPost: true,
+      };
+    }
+    case SET_READ_LIST_POST: {
+      return {
+        ...state,
+        readListPosts: action.payload,
+      };
+    }
+    case DELETE_READ_LIST_POST: {
+      return {
+        ...state,
+        readListPosts: action.payload,
+      };
+    }
+
+    case SET_COUNT_READ_LIST_POST: {
+      return {
+        ...state,
+        countOfList: state.countOfList + 1,
+      };
+    }
+    case DELETE_COUNT_READ_LIST_POST: {
+      return {
+        ...state,
+        countOfList: state.countOfList - 1,
       };
     }
     default:
