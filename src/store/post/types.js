@@ -6,7 +6,3 @@ export const SET_CURRENT_POST = 'post/SET_CURRENT_POST';
 
 export const SET_READ_LIST_POST = 'readlist/SET_READ_LIST_POST';
 export const DELETE_READ_LIST_POST = 'readlist/DELETE_READ_LIST_POST';
-export const DELETE_READ_LIST_POST_2 = 'readlist/DELETE_READ_LIST_POST_2';
-
-export const SET_COUNT_READ_LIST_POST = 'readlist/SET_COUNT_READ_LIST_POST';
-export const DELETE_COUNT_READ_LIST_POST = 'readlist/DELETE_COUNT_READ_LIST_POST';

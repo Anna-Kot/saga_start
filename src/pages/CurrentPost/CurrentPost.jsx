@@ -12,17 +12,15 @@ import * as s from './CurrentPost.styled';
 
 import { ReactComponent as ArrowBack } from '../../assets/svg/ArrowBack.svg';
 
-const CurrentPost = ({ onLoad }) => {
+const CurrentPost = () => {
   const dispatch = useDispatch();
   const post = useSelector(state => state.Posts.openedPost);
-
   // console.log(post);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
   // console.log(id);
-
   // const params = useParams();
   // console.log(params);
 
@@ -30,9 +28,7 @@ const CurrentPost = ({ onLoad }) => {
     // const payload = {
     //   postId: id,
     // };
-
     // dispatch(loadCurrentPost(payload));
-
     dispatch(loadCurrentPost({ id }));
   };
 
@@ -48,7 +44,7 @@ const CurrentPost = ({ onLoad }) => {
         <Title title={post?.title} />
         <s.ButtonWrraper>
           <TagsContainer tagsList={post?.tags}></TagsContainer>
-          <EditingButtonContainer></EditingButtonContainer>
+          <EditingButtonContainer post={post}></EditingButtonContainer>
         </s.ButtonWrraper>
         <p>{post?.body}</p>
       </s.MainWrraper>

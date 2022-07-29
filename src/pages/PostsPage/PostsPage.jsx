@@ -12,20 +12,15 @@ import * as s from './PostsPage.styled';
 const PostsPage = () => {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.Posts.posts);
-  // console.log(posts);
+
   const handleLoadPosts = id => {
     // const payload = {
     //   postId: id,
     // };
-
     // dispatch(loadCurrentPost(payload));
 
     dispatch(loadPosts());
   };
-
-  useEffect(() => {
-    handleLoadPosts();
-  }, []);
 
   const navigate = useNavigate();
 
@@ -39,7 +34,6 @@ const PostsPage = () => {
     <>
       <SideBar />
       <s.MainWrraper>
-        {/* PostsPage */}
         <Title title="All Posts" />
         <s.PostsColumn>
           {posts.map(post => (

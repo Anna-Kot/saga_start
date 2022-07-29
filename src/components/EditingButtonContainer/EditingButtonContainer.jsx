@@ -1,7 +1,7 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { setCountReadListPost, setReadListPost } from '../../store/post/actions';
+import { setReadListPost } from '../../store/post/actions';
 import EditingButton from '../../components/EditingButton';
 
 import * as s from './EditingButtonContainer.styled';
