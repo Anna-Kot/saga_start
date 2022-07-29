@@ -4,8 +4,6 @@ import {
   LOAD_CURRENT_POST,
   SET_CURRENT_POST,
   SET_READ_LIST_POST,
-  SET_COUNT_READ_LIST_POST,
-  DELETE_COUNT_READ_LIST_POST,
   DELETE_READ_LIST_POST,
   DELETE_READ_LIST_POST_2,
 } from './types';
@@ -50,13 +48,15 @@ export default function postsReducer(state = initialState, action) {
     case SET_READ_LIST_POST: {
       return {
         ...state,
-        readListPosts: action.payload,
+        readListPosts: [...state.readListPosts, action.payload],
+        countOfList: ++state.countOfList,
       };
     }
     case DELETE_READ_LIST_POST: {
       return {
         ...state,
-        readListPosts: state.readListPosts.filter(el => el.id !== action.payload.id),
+        readListPosts: state.readListPosts.filter(post => post.id !== action.payload),
+        countOfList: --state.countOfList,
       };
     }
     case DELETE_READ_LIST_POST_2: {
@@ -66,18 +66,6 @@ export default function postsReducer(state = initialState, action) {
       };
     }
 
-    case SET_COUNT_READ_LIST_POST: {
-      return {
-        ...state,
-        countOfList: state.countOfList + 1,
-      };
-    }
-    case DELETE_COUNT_READ_LIST_POST: {
-      return {
-        ...state,
-        countOfList: state.countOfList - 1,
-      };
-    }
     default:
       return state;
   }

@@ -41,9 +41,9 @@ export const deleteCountReadListPost = payload => ({
   type: DELETE_COUNT_READ_LIST_POST,
   payload,
 });
-export const deleteReadListPost = id => ({
+export const deleteReadListPost = payload => ({
   type: DELETE_READ_LIST_POST,
-  payload: id,
+  payload,
 });
 export const deleteReadListPost2 = payload => ({
   type: DELETE_READ_LIST_POST_2,

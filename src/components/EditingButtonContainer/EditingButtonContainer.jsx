@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setCountReadListPost } from '../../store/post/actions';
+import { setCountReadListPost, setReadListPost } from '../../store/post/actions';
 import EditingButton from '../../components/EditingButton';
 
 import * as s from './EditingButtonContainer.styled';
@@ -11,16 +11,12 @@ import { ReactComponent as DeletePost } from '../../assets/svg/DeletePost.svg';
 
 const EditingButtonContainer = ({ post }) => {
   const dispatch = useDispatch();
-  const readListPosts = useSelector(state => state.Posts.readListPosts);
-  console.log('readListPosts', readListPosts);
 
   const addPostToList = (event, count) => {
     event.stopPropagation();
-    dispatch(setCountReadListPost(count));
-    console.log(post.id);
-    console.log(post);
-    readListPosts.push(post);
+    dispatch(setReadListPost(post));
   };
+
   return (
     <s.ButtonsContainer className="editing-button">
       <EditingButton IconComponent={PinPost} onClickButton={addPostToList} />

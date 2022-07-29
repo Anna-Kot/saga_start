@@ -1,6 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import * as s from './SideBarButton.styled';
 
@@ -10,8 +9,7 @@ import * as s from './SideBarButton.styled';
 */
 const SidebarButton = ({ type, IconComponent = () => null, text = '', markerColor = '', onClickHandler }) => {
   const count = useSelector(state => state.Posts.countOfList);
-  // console.log(count);
-  const navigate = useNavigate();
+
   if (type === 'IconButton') {
     if (text === 'Read List') {
       return (
