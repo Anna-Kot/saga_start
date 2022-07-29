@@ -7,6 +7,7 @@ import {
   SET_COUNT_READ_LIST_POST,
   DELETE_COUNT_READ_LIST_POST,
   DELETE_READ_LIST_POST,
+  DELETE_READ_LIST_POST_2,
 } from './types';
 
 const initialState = {
@@ -53,6 +54,12 @@ export default function postsReducer(state = initialState, action) {
       };
     }
     case DELETE_READ_LIST_POST: {
+      return {
+        ...state,
+        readListPosts: state.readListPosts.filter(el => el.id !== action.payload.id),
+      };
+    }
+    case DELETE_READ_LIST_POST_2: {
       return {
         ...state,
         readListPosts: action.payload,

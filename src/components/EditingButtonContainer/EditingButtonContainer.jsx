@@ -11,12 +11,8 @@ import { ReactComponent as DeletePost } from '../../assets/svg/DeletePost.svg';
 
 const EditingButtonContainer = ({ post }) => {
   const dispatch = useDispatch();
-  // const posts = useSelector(state => state.Posts.posts);
-  // const count = useSelector(state => state.Posts.countOfList);
   const readListPosts = useSelector(state => state.Posts.readListPosts);
   console.log('readListPosts', readListPosts);
-  // console.log('count', count);
-  // console.log('posts', posts);
 
   const addPostToList = (event, count) => {
     event.stopPropagation();

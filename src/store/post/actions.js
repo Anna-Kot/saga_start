@@ -7,6 +7,7 @@ import {
   SET_COUNT_READ_LIST_POST,
   DELETE_COUNT_READ_LIST_POST,
   DELETE_READ_LIST_POST,
+  DELETE_READ_LIST_POST_2,
 } from './types';
 
 export const loadPosts = payload => ({
@@ -43,4 +44,8 @@ export const deleteCountReadListPost = payload => ({
 export const deleteReadListPost = id => ({
   type: DELETE_READ_LIST_POST,
   payload: id,
+});
+export const deleteReadListPost2 = payload => ({
+  type: DELETE_READ_LIST_POST_2,
+  payload,
 });
