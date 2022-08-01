@@ -10,8 +10,8 @@ import * as s from './ReadList.styled';
 
 const ReadList = () => {
   const navigate = useNavigate();
-  const list = useSelector(state => state.Posts.readListPosts);
-
+  const readList = useSelector(state => state.Posts.readListPosts);
+  console.log(readList);
   const handleOpenPostById = id => navigate(`/posts/${id}`);
 
   return (
@@ -19,9 +19,10 @@ const ReadList = () => {
       <SideBar />
       <s.MainWrraper>
         <Title title="Read List" />
+        {!readList.length < 1 ? '' : <p>Please, add the Post to Read List</p>}
         <s.PostsColumn>
-          {list &&
-            list.map(post => (
+          {readList &&
+            readList.map(post => (
               <PostInfo id={post.id} post={post} handleOpenPostById={handleOpenPostById} type="readList" />
             ))}
         </s.PostsColumn>

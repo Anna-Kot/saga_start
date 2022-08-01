@@ -9,6 +9,13 @@ import { ReactComponent as PlusPost } from '../../assets/svg/PlusPost.svg';
 
 const SideBar = () => {
   const navigate = useNavigate();
+  // const onClickHandlerNavigate = text => {
+  //   if (text === 'All Posts') {
+  //     navigate('/posts');
+  //   } else if (text === 'Read List') {
+  //     navigate('/readlist');
+  //   }
+  // };
   return (
     <s.MainWrraper>
       <SideBarButton
