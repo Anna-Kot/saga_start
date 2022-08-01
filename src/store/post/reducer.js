@@ -3,6 +3,7 @@ import {
   SET_POSTS,
   LOAD_CURRENT_POST,
   SET_CURRENT_POST,
+  CLEAR_CURRENT_POST,
   SET_READ_LIST_POST,
   DELETE_READ_LIST_POST,
 } from './types';
@@ -36,6 +37,12 @@ export default function postsReducer(state = initialState, action) {
         ...state,
         openedPost: action.payload,
         loadingCurrentPost: false,
+      };
+    }
+    case CLEAR_CURRENT_POST: {
+      return {
+        ...state,
+        openedPost: null,
       };
     }
     case LOAD_CURRENT_POST: {

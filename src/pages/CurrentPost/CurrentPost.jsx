@@ -6,7 +6,7 @@ import SideBar from '../../containers/SideBar';
 import Title from '../../components/Title';
 import EditingButtonContainer from '../../components/EditingButtonContainer/EditingButtonContainer';
 import TagsContainer from '../../components/TagsContainer/TagsContainer';
-import { loadCurrentPost } from '../../store/post/actions';
+import { loadCurrentPost, clearCurrentPost } from '../../store/post/actions';
 
 import * as s from './CurrentPost.styled';
 
@@ -31,16 +31,22 @@ const CurrentPost = () => {
     // dispatch(loadCurrentPost(payload));
     dispatch(loadCurrentPost({ id }));
   };
+  const handleCloseCurrentPost = () => {
+    navigate('/posts');
+  };
 
   useEffect(() => {
     handleLoadSinglePost(id);
+    return () => {
+      dispatch(clearCurrentPost(post));
+    };
   }, []);
 
   return (
     <>
       <SideBar />
       <s.MainWrraper>
-        <ArrowBack className="arrow-back" onClick={() => navigate('/posts')} />
+        <ArrowBack className="arrow-back" onClick={handleCloseCurrentPost} />
         <Title title={post?.title} />
         <s.ButtonWrraper>
           <TagsContainer tagsList={post?.tags}></TagsContainer>

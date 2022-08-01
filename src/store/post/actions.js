@@ -3,6 +3,7 @@ import {
   SET_POSTS,
   LOAD_CURRENT_POST,
   SET_CURRENT_POST,
+  CLEAR_CURRENT_POST,
   SET_READ_LIST_POST,
   DELETE_READ_LIST_POST,
 } from './types';
@@ -22,6 +23,10 @@ export const loadCurrentPost = payload => ({
 });
 export const setCurrentPost = payload => ({
   type: SET_CURRENT_POST,
+  payload,
+});
+export const clearCurrentPost = payload => ({
+  type: CLEAR_CURRENT_POST,
   payload,
 });
 
