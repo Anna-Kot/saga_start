@@ -10,7 +10,7 @@ export const ButtonContainer = styled.button`
   display: flex;
   align-items: center;
   border: none;
-  background: transparent;
+  background: ${({ activeButton }) => (activeButton ? '#ffffff' : 'transparent')};
   cursor: pointer;
 
   margin-bottom: 8px;

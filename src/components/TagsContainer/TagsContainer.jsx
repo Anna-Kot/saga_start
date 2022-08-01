@@ -8,7 +8,7 @@ const TagsContainer = ({ tagsList }) => {
     <s.TagsWrapper className="tag-wrapper">
       {tagsList &&
         tagsList.map(tag => {
-          return <s.TagBlock>{tag}</s.TagBlock>;
+          return <s.TagBlock key={tag}>{tag}</s.TagBlock>;
         })}
       {/* <s.TagBlock>{post && post.tags[0]}</s.TagBlock>
       <s.TagBlock>{post && post.tags[1]}</s.TagBlock>

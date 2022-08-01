@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -11,8 +11,16 @@ import * as s from './ReadList.styled';
 const ReadList = () => {
   const navigate = useNavigate();
   const readList = useSelector(state => state.Posts.readListPosts);
-  console.log(readList);
-  const handleOpenPostById = id => navigate(`/posts/${id}`);
+  // const handleOpenPostById = id => navigate(`/posts/${id}`);
+  const handleOpenPostById = id => {
+    if (id === 1) console.log('RENDER ID1 post!!!');
+
+    navigate(`/posts/${id}`);
+  };
+  // const handleOpenPostById = useCallback(id => {
+  //   if (id === 1) console.log('RENDER ID1 post!!!');
+  //   navigate(`/posts/${id}`);
+  // }, []);
 
   return (
     <>
