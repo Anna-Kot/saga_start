@@ -73,13 +73,13 @@ export default function postsReducer(state = initialState, action) {
       return {
         ...state,
         filterTitle: action.payload,
-        // filterPosts: state.posts.filter(post => post.tags[] === action.payload),
-        filterPosts: state.posts.filter(post => {
-          const tags = post.tags;
-          let match = tags.some(tag => tag === action.payload.toLowerCase());
-          console.log('match', match);
-          if (match) return post;
-        }),
+        filterPosts: state.posts.filter(post => post.tags.includes(action.payload.toLowerCase())),
+        // filterPosts: state.posts.filter(post => {
+        //   const tags = post.tags;
+        //   let match = tags.some(tag => tag === action.payload.toLowerCase());
+        //   console.log('match', match);
+        //   if (match) return post;
+        // }),
       };
     }
 

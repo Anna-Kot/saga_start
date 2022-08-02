@@ -9,10 +9,10 @@ import Title from '../../components/Title';
 import * as s from './FilterPosts.styled';
 
 const FilterPosts = () => {
+  const navigate = useNavigate();
   const filterPosts = useSelector(state => state.Posts.filterPosts);
   const filterTitle = useSelector(state => state.Posts.filterTitle);
   console.log(filterPosts);
-  const navigate = useNavigate();
 
   const handleOpenPostById = id => navigate(`/posts/${id}`);
 
@@ -22,8 +22,9 @@ const FilterPosts = () => {
       <s.MainWrraper>
         <Title title={filterTitle} />
         <s.PostsColumn>
-          {filterPosts &&
-            filterPosts.map(post => <PostInfo key={post.id} post={post} handleOpenPostById={handleOpenPostById} />)}
+          {filterPosts.map(post => (
+            <PostInfo key={post.id} post={post} handleOpenPostById={handleOpenPostById} />
+          ))}
         </s.PostsColumn>
       </s.MainWrraper>
     </>

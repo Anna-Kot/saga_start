@@ -1,4 +1,4 @@
-import { call, takeEvery, put } from 'redux-saga/effects';
+import { call, takeEvery, put, delay } from 'redux-saga/effects';
 
 import { setPosts, setCurrentPost } from './actions';
 import { LOAD_POSTS, LOAD_CURRENT_POST } from './types';
@@ -7,6 +7,7 @@ import { getSinglePostRequest } from '../../services/post/postServices';
 
 function* loadAllPostsWorker() {
   try {
+    yield delay(3000);
     const { data } = yield call(getPostsRequest);
     yield put(setPosts(data));
   } catch (error) {
@@ -16,6 +17,7 @@ function* loadAllPostsWorker() {
 
 function* loadCurrentPostWorker(action) {
   try {
+    yield delay(3000);
     const { data } = yield call(getSinglePostRequest, action.payload.id);
     yield put(setCurrentPost(data));
   } catch (error) {
