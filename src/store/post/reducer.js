@@ -6,6 +6,7 @@ import {
   CLEAR_CURRENT_POST,
   SET_READ_LIST_POST,
   DELETE_READ_LIST_POST,
+  SET_FILTER_POSTS,
 } from './types';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   loadingCurrentPost: false,
   countOfList: 0,
   readListPosts: [],
+  filterPosts: [],
 };
 
 export default function postsReducer(state = initialState, action) {
@@ -63,6 +65,12 @@ export default function postsReducer(state = initialState, action) {
         ...state,
         readListPosts: state.readListPosts.filter(post => post.id !== action.payload),
         countOfList: --state.countOfList,
+      };
+    }
+    case SET_FILTER_POSTS: {
+      return {
+        ...state,
+        filterPosts: action.payload,
       };
     }
 

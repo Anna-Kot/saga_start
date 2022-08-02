@@ -5,6 +5,7 @@ import CurrentPost from './pages/CurrentPost/CurrentPost';
 
 import * as s from './styles/App.styled';
 import ReadList from './pages/ReadList/ReadList';
+import FilterPosts from './pages/FilterPosts/FilterPosts';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/posts" exact element={<PostsPage />} />
         <Route path="/posts/:id" exact element={<CurrentPost />} />
         <Route path="/readlist" exact element={<ReadList />} />
+        <Route path="/filter-posts" exact element={<FilterPosts />} />
       </Routes>
     </s.BodyWrapper>
   );

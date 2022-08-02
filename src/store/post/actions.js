@@ -6,6 +6,7 @@ import {
   CLEAR_CURRENT_POST,
   SET_READ_LIST_POST,
   DELETE_READ_LIST_POST,
+  SET_FILTER_POSTS,
 } from './types';
 
 export const loadPosts = payload => ({
@@ -37,5 +38,10 @@ export const setReadListPost = payload => ({
 
 export const deleteReadListPost = payload => ({
   type: DELETE_READ_LIST_POST,
+  payload,
+});
+
+export const setFilterPosts = payload => ({
+  type: SET_FILTER_POSTS,
   payload,
 });

@@ -7,3 +7,5 @@ export const CLEAR_CURRENT_POST = 'post/CLEAR_CURRENT_POST';
 
 export const SET_READ_LIST_POST = 'readlist/SET_READ_LIST_POST';
 export const DELETE_READ_LIST_POST = 'readlist/DELETE_READ_LIST_POST';
+
+export const SET_FILTER_POSTS = 'readlist/SET_FILTER_POSTS';
