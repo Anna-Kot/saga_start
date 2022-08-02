@@ -10,25 +10,25 @@ import { loadPosts } from '../../store/post/actions';
 import * as s from './PostsPage.styled';
 
 const PostsPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const posts = useSelector(state => state.Posts.posts);
 
-  const handleLoadPosts = id => {
-    // const payload = {
-    //   postId: id,
-    // };
-    // dispatch(loadCurrentPost(payload));
+  // const handleLoadPosts = id => {
+  //   // const payload = {
+  //   //   postId: id,
+  //   // };
+  //   // dispatch(loadCurrentPost(payload));
 
-    dispatch(loadPosts());
-  };
+  //   dispatch(loadPosts());
+  // };
 
   const navigate = useNavigate();
 
   const handleOpenPostById = id => navigate(`/posts/${id}`);
 
-  useEffect(() => {
-    handleLoadPosts();
-  }, []);
+  // useEffect(() => {
+  //   handleLoadPosts();
+  // }, []);
 
   return (
     <>

@@ -1,20 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import SideBar from '../../containers/SideBar';
 import PostInfo from '../../components//PostInfo';
 import Title from '../../components/Title';
+import { setFilterPosts } from '../../store/post/actions';
 
 import * as s from './FilterPosts.styled';
 
 const FilterPosts = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const posts = useSelector(state => state.Posts.posts);
   const filterPosts = useSelector(state => state.Posts.filterPosts);
   const filterTitle = useSelector(state => state.Posts.filterTitle);
   console.log(filterPosts);
 
   const handleOpenPostById = id => navigate(`/posts/${id}`);
+
+  useEffect(() => {
+    dispatch(setFilterPosts(filterTitle));
+  }, [posts]);
 
   return (
     <>

@@ -17,7 +17,7 @@ const initialState = {
   countOfList: 0,
   readListPosts: [],
   filterPosts: [],
-  filterTitle: '',
+  filterTitle: 'Classic',
 };
 
 export default function postsReducer(state = initialState, action) {
