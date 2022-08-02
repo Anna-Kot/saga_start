@@ -17,6 +17,7 @@ const initialState = {
   countOfList: 0,
   readListPosts: [],
   filterPosts: [],
+  filterTitle: '',
 };
 
 export default function postsReducer(state = initialState, action) {
@@ -68,9 +69,17 @@ export default function postsReducer(state = initialState, action) {
       };
     }
     case SET_FILTER_POSTS: {
+      console.log(action.payload);
       return {
         ...state,
-        filterPosts: action.payload,
+        filterTitle: action.payload,
+        // filterPosts: state.posts.filter(post => post.tags[] === action.payload),
+        filterPosts: state.posts.filter(post => {
+          const tags = post.tags;
+          let match = tags.some(tag => tag === action.payload.toLowerCase());
+          console.log('match', match);
+          if (match) return post;
+        }),
       };
     }
 

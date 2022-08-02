@@ -14,6 +14,7 @@ const SIDEBAR_BUTTONS = [
     IconComponent: ListBarIcon,
     path: '/posts',
     markerColor: null,
+    tag: null,
   },
   {
     text: 'Read List',
@@ -21,6 +22,7 @@ const SIDEBAR_BUTTONS = [
     IconComponent: ClipIcon,
     path: '/readlist',
     markerColor: null,
+    tag: null,
   },
   {
     text: 'Classic',
@@ -28,6 +30,7 @@ const SIDEBAR_BUTTONS = [
     IconComponent: null,
     path: '/filter-posts',
     markerColor: '#42b883',
+    tag: 'Classic',
   },
   {
     text: 'English',
@@ -35,6 +38,7 @@ const SIDEBAR_BUTTONS = [
     IconComponent: null,
     path: '/filter-posts',
     markerColor: '#64c4ed',
+    tag: 'English',
   },
   {
     text: 'Fiction',
@@ -42,6 +46,7 @@ const SIDEBAR_BUTTONS = [
     IconComponent: null,
     path: '/filter-posts',
     markerColor: '#ffbbcc',
+    tag: 'Fiction',
   },
   {
     text: 'Add new post',
@@ -49,6 +54,7 @@ const SIDEBAR_BUTTONS = [
     IconComponent: PlusPost,
     path: null,
     markerColor: null,
+    tag: null,
   },
 ];
 
@@ -70,7 +76,7 @@ const SideBar = () => {
   // };
   return (
     <s.MainWrraper>
-      {SIDEBAR_BUTTONS.map(({ text, type, path, markerColor, IconComponent }) => {
+      {SIDEBAR_BUTTONS.map(({ text, type, tag, path, markerColor, IconComponent }) => {
         return (
           <SideBarButton
             key={text}
@@ -78,6 +84,7 @@ const SideBar = () => {
             IconComponent={IconComponent}
             type={type}
             text={text}
+            tag={tag}
             markerColor={markerColor}
             activeButton={activeButton}
             setActiveButton={setActiveButton}
