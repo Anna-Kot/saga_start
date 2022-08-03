@@ -6,12 +6,14 @@ import PostInfo from '../../components//PostInfo';
 import Title from '../../components/Title';
 import SideBar from '../../containers/SideBar';
 import { loadPosts } from '../../store/post/actions';
+import loadingImg from '../../assets/img/loading.gif';
 
 import * as s from './PostsPage.styled';
 
 const PostsPage = () => {
   // const dispatch = useDispatch();
   const posts = useSelector(state => state.Posts.posts);
+  const loading = useSelector(state => state.Posts.loading);
 
   // const handleLoadPosts = id => {
   //   // const payload = {
@@ -34,6 +36,12 @@ const PostsPage = () => {
     <>
       <SideBar />
       <s.MainWrraper>
+        {loading && (
+          <s.LoadingBlock>
+            <s.LoadingText>...loading</s.LoadingText>
+            <img src={loadingImg} alt="loading..." />
+          </s.LoadingBlock>
+        )}
         <Title title="All Posts" />
         <s.PostsColumn>
           {posts.map(post => (

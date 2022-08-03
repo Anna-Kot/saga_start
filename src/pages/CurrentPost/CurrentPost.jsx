@@ -7,6 +7,7 @@ import Title from '../../components/Title';
 import EditingButtonContainer from '../../components/EditingButtonContainer/EditingButtonContainer';
 import TagsContainer from '../../components/TagsContainer/TagsContainer';
 import { loadCurrentPost, clearCurrentPost } from '../../store/post/actions';
+import loadingImg from '../../assets/img/loading.gif';
 
 import * as s from './CurrentPost.styled';
 
@@ -15,6 +16,7 @@ import { ReactComponent as ArrowBack } from '../../assets/svg/ArrowBack.svg';
 const CurrentPost = () => {
   const dispatch = useDispatch();
   const post = useSelector(state => state.Posts.openedPost);
+  const loading = useSelector(state => state.Posts.loadingCurrentPost);
   // console.log(post);
 
   const navigate = useNavigate();
@@ -46,6 +48,12 @@ const CurrentPost = () => {
     <>
       <SideBar />
       <s.MainWrraper>
+        {loading && (
+          <s.LoadingBlock>
+            <s.LoadingText>...loading</s.LoadingText>
+            <img src={loadingImg} alt="loading..." />
+          </s.LoadingBlock>
+        )}
         <ArrowBack className="arrow-back" onClick={handleCloseCurrentPost} />
         <Title title={post?.title} />
         <s.ButtonWrraper>

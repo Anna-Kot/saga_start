@@ -28,3 +28,19 @@ export const ButtonWrraper = styled.div`
   height: 50px;
   position: relative;
 `;
+export const LoadingBlock = styled.div`
+  position: absolute;
+  width: 70%;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+  z-index: 3;
+  padding-top: 120px;
+`;
+export const LoadingText = styled.h1`
+  position: absolute;
+  left: 43%;
+  margin-top: 83px;
+`;

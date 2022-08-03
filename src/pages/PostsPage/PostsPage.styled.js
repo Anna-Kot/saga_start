@@ -18,3 +18,19 @@ export const PostsColumn = styled.div`
     display: none;
   }
 `;
+export const LoadingBlock = styled.div`
+  position: absolute;
+  width: 70%;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+  z-index: 3;
+  padding-top: 120px;
+`;
+export const LoadingText = styled.h1`
+  position: absolute;
+  left: 43%;
+  margin-top: 83px;
+`;
