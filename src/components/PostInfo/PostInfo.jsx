@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import EditingButtonContainer from '../EditingButtonContainer/EditingButtonContainer';
 import ClosePostListButton from '../ClosePostListButton/ClosePostListButton';
 import TagsContainer from '../TagsContainer/TagsContainer';
-import { deleteReadListPost } from '../../store/post/actions';
+import { deleteReadListPost, deletePosts } from '../../store/post/actions';
 import * as s from '../PostInfo/PostInfo.styled';
 
 const PostInfo = ({ type = 'regular', post, id, handleOpenPostById }) => {
@@ -15,6 +15,11 @@ const PostInfo = ({ type = 'regular', post, id, handleOpenPostById }) => {
 
     dispatch(deleteReadListPost(id));
   };
+  const handleDeleteFromPosts = event => {
+    event.stopPropagation();
+
+    dispatch(deletePosts(id));
+  };
 
   return (
     <s.BorderWrraper onClick={() => handleOpenPostById(post.id)}>
@@ -23,7 +28,7 @@ const PostInfo = ({ type = 'regular', post, id, handleOpenPostById }) => {
       {type === 'readList' ? (
         <ClosePostListButton handleDeletePostFromList={handleDeletePostFromList}></ClosePostListButton>
       ) : (
-        <EditingButtonContainer post={post}></EditingButtonContainer>
+        <EditingButtonContainer post={post} handleDeleteFromPosts={handleDeleteFromPosts}></EditingButtonContainer>
       )}
     </s.BorderWrraper>
   );

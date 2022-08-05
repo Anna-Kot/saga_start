@@ -37,7 +37,7 @@ const FilterPosts = () => {
         <Title title={filterTitle} />
         <s.PostsColumn>
           {filterPosts.map(post => (
-            <PostInfo key={post.id} post={post} handleOpenPostById={handleOpenPostById} />
+            <PostInfo key={post.id}  id={post.id} post={post} handleOpenPostById={handleOpenPostById} />
           ))}
         </s.PostsColumn>
       </s.MainWrraper>

@@ -12,7 +12,7 @@ import { ReactComponent as DeletePost } from '../../assets/svg/DeletePost.svg';
 const LENGTH_MESSAGE = 'Sorry, you can added to Read List only 10 posts';
 const DUPLICATE_MESSAGE = 'You can`t added duplicate';
 
-const EditingButtonContainer = ({ post }) => {
+const EditingButtonContainer = ({ post, handleDeleteFromPosts }) => {
   const dispatch = useDispatch();
   const readList = useSelector(state => state.Posts.readListPosts);
 
@@ -41,7 +41,7 @@ const EditingButtonContainer = ({ post }) => {
     <s.ButtonsContainer className="editing-button">
       <EditingButton IconComponent={readList.length < 10 ? PinPost : PinPostRed} onClickButton={addPostToList} />
       <EditingButton IconComponent={EditPost} />
-      <EditingButton IconComponent={DeletePost} />
+      <EditingButton IconComponent={DeletePost} onClickButton={handleDeleteFromPosts} />
     </s.ButtonsContainer>
   );
 };

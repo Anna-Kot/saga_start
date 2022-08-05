@@ -13,6 +13,7 @@ import * as s from './PostsPage.styled';
 const PostsPage = () => {
   // const dispatch = useDispatch();
   const posts = useSelector(state => state.Posts.posts);
+  console.log(posts);
   const loading = useSelector(state => state.Posts.loading);
 
   // const handleLoadPosts = id => {
@@ -45,7 +46,7 @@ const PostsPage = () => {
         <Title title="All Posts" />
         <s.PostsColumn>
           {posts.map(post => (
-            <PostInfo key={post.id} post={post} handleOpenPostById={handleOpenPostById} />
+            <PostInfo key={post.id} id={post.id} post={post} handleOpenPostById={handleOpenPostById} />
           ))}
         </s.PostsColumn>
       </s.MainWrraper>
