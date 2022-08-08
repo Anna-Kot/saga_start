@@ -1,6 +1,9 @@
 import {
   LOAD_POSTS,
   SET_POSTS,
+  DELETE_POSTS,
+  REMOVE_POST_START,
+  REMOVE_POST_SUCCESS,
   LOAD_CURRENT_POST,
   SET_CURRENT_POST,
   CLEAR_CURRENT_POST,
@@ -13,6 +16,7 @@ const initialState = {
   posts: [],
   openedPost: null,
   loading: false,
+  loadingRemove: false,
   loadingCurrentPost: false,
   countOfList: 0,
   readListPosts: [],
@@ -35,6 +39,31 @@ export default function postsReducer(state = initialState, action) {
         loading: true,
       };
     }
+    case DELETE_POSTS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        posts: state.posts.filter(post => post.id !== action.payload),
+        loadingRemove: false,
+      };
+    }
+
+    case REMOVE_POST_START: {
+      console.log(action.payload);
+      return {
+        ...state,
+        loadingRemove: true,
+      };
+    }
+    case REMOVE_POST_SUCCESS: {
+      console.log(action.payload);
+      return {
+        ...state,
+        posts: state.posts.filter(post => post.id !== action.payload),
+        loadingRemove: false,
+      };
+    }
+
     case SET_CURRENT_POST: {
       return {
         ...state,

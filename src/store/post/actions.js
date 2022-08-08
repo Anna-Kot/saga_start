@@ -1,6 +1,9 @@
 import {
   LOAD_POSTS,
   SET_POSTS,
+  DELETE_POSTS,
+  REMOVE_POST_START,
+  REMOVE_POST_SUCCESS,
   LOAD_CURRENT_POST,
   SET_CURRENT_POST,
   CLEAR_CURRENT_POST,
@@ -15,6 +18,19 @@ export const loadPosts = payload => ({
 });
 export const setPosts = payload => ({
   type: SET_POSTS,
+  payload,
+});
+export const deletePosts = payload => ({
+  type: DELETE_POSTS,
+  payload,
+});
+
+export const removeSinglePostStart = payload => ({
+  type: REMOVE_POST_START,
+  payload,
+});
+export const removeSinglePostSuccess = payload => ({
+  type: REMOVE_POST_SUCCESS,
   payload,
 });
 
