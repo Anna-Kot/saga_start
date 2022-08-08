@@ -1,7 +1,6 @@
 import {
   LOAD_POSTS,
   SET_POSTS,
-  DELETE_POSTS,
   REMOVE_POST_START,
   REMOVE_POST_SUCCESS,
   LOAD_CURRENT_POST,
@@ -37,14 +36,6 @@ export default function postsReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-      };
-    }
-    case DELETE_POSTS: {
-      console.log(action.payload);
-      return {
-        ...state,
-        posts: state.posts.filter(post => post.id !== action.payload),
-        loadingRemove: false,
       };
     }
 

@@ -1,6 +1,6 @@
 import { call, takeEvery, put, delay } from 'redux-saga/effects';
 
-import { setPosts, setCurrentPost, removeSinglePostSuccess, deletePosts } from './actions';
+import { setPosts, setCurrentPost, removeSinglePostSuccess } from './actions';
 import { LOAD_POSTS, LOAD_CURRENT_POST, REMOVE_POST_START } from './types';
 import { getPostsRequest } from '../../services/post/postServices';
 import { getSinglePostRequest } from '../../services/post/postServices';
@@ -31,8 +31,8 @@ function* loadCurrentPostWorker(action) {
 function* deleteCurrentPostWorker(action) {
   console.log(action);
   try {
-    const { data } = yield call(deleteSinglePostRequest, action.payload.id);
-    yield put(deletePosts(data));
+    yield call(deleteSinglePostRequest, action.payload.id);
+    yield put(removeSinglePostSuccess(action.payload.id));
   } catch (error) {
     console.log(error);
   }

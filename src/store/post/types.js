@@ -1,6 +1,5 @@
 export const LOAD_POSTS = 'post/LOAD_POSTS';
 export const SET_POSTS = 'post/SET_POSTS';
-export const DELETE_POSTS = 'post/DELETE_POSTS';
 
 export const REMOVE_POST_START = 'post/REMOVE_POST_START';
 export const REMOVE_POST_SUCCESS = 'post/REMOVE_POST_SUCCESS';
