@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux/es/exports';
 
@@ -6,8 +6,10 @@ import SideBar from '../../containers/SideBar';
 import Title from '../../components/Title';
 import EditingButtonContainer from '../../components/EditingButtonContainer/EditingButtonContainer';
 import TagsContainer from '../../components/TagsContainer/TagsContainer';
-import { loadCurrentPost, clearCurrentPost } from '../../store/post/actions';
+import { loadCurrentPost, clearCurrentPost, removeSinglePostStart } from '../../store/post/actions';
 import loadingImg from '../../assets/img/loading.gif';
+import BackdropPopup from '../../components/BackdropPopup';
+import PopupButtonsBlock from '../../components/PopupButtonsBlock';
 
 import * as s from './CurrentPost.styled';
 
@@ -17,7 +19,6 @@ const CurrentPost = () => {
   const dispatch = useDispatch();
   const post = useSelector(state => state.Posts.openedPost);
   const loading = useSelector(state => state.Posts.loadingCurrentPost);
-  // console.log(post);
 
   const navigate = useNavigate();
 
@@ -35,6 +36,18 @@ const CurrentPost = () => {
   };
   const handleCloseCurrentPost = () => {
     navigate('/posts');
+  };
+  const handleDeleteFromPosts = event => {
+    event.stopPropagation();
+
+    dispatch(removeSinglePostStart(post));
+    navigate('/posts');
+  };
+
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const handleShowDeletePopup = event => {
+    event.stopPropagation();
+    setShowDeletePopup(!showDeletePopup);
   };
 
   useEffect(() => {
@@ -58,10 +71,22 @@ const CurrentPost = () => {
         <Title title={post?.title} />
         <s.ButtonWrraper>
           <TagsContainer tagsList={post?.tags}></TagsContainer>
-          <EditingButtonContainer post={post}></EditingButtonContainer>
+          <EditingButtonContainer post={post} handleShowDeletePopup={handleShowDeletePopup}></EditingButtonContainer>
         </s.ButtonWrraper>
         <p>{post?.body}</p>
       </s.MainWrraper>
+      {showDeletePopup && (
+        <BackdropPopup>
+          <s.PopupBlock>
+            <p>Are you sure you want to remove this post?</p>
+            <PopupButtonsBlock
+              setShowDeletePopup={setShowDeletePopup}
+              showDeletePopup={showDeletePopup}
+              handleDeleteFromPosts={handleDeleteFromPosts}
+            ></PopupButtonsBlock>
+          </s.PopupBlock>
+        </BackdropPopup>
+      )}
     </>
   );
 };

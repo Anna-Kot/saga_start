@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 import PostInfo from '../../components//PostInfo';
 import Title from '../../components/Title';
 import SideBar from '../../containers/SideBar';
-import { loadPosts } from '../../store/post/actions';
 import loadingImg from '../../assets/img/loading.gif';
 
 import * as s from './PostsPage.styled';
