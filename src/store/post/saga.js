@@ -1,10 +1,11 @@
 import { call, takeEvery, put, delay } from 'redux-saga/effects';
 
-import { setPosts, setCurrentPost, removeSinglePostSuccess } from './actions';
-import { LOAD_POSTS, LOAD_CURRENT_POST, REMOVE_POST_START } from './types';
+import { setPosts, setCurrentPost, removeSinglePostSuccess, updateCurrentPostSuccess } from './actions';
+import { LOAD_POSTS, LOAD_CURRENT_POST, REMOVE_POST_START, UPDATE_CURRENT_POST_START } from './types';
 import { getPostsRequest } from '../../services/post/postServices';
 import { getSinglePostRequest } from '../../services/post/postServices';
 import { deleteSinglePostRequest } from '../../services/post/postServices';
+import { updateSinglePostRequest } from '../../services/post/postServices';
 
 function* loadAllPostsWorker() {
   try {
@@ -37,8 +38,19 @@ function* deleteCurrentPostWorker(action) {
     console.log(error);
   }
 }
+
+function* updateCurrentPostWorker(action) {
+  console.log(action);
+  try {
+    const { data } = yield call(updateSinglePostRequest, action.payload.id);
+    yield put(updateCurrentPostSuccess(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
 export const postSagas = [
   takeEvery(LOAD_POSTS, loadAllPostsWorker),
   takeEvery(LOAD_CURRENT_POST, loadCurrentPostWorker),
   takeEvery(REMOVE_POST_START, deleteCurrentPostWorker),
+  takeEvery(UPDATE_CURRENT_POST_START, updateCurrentPostWorker),
 ];

@@ -30,6 +30,6 @@ export const CancelButton = styled.div`
   }
 `;
 export const SaveButton = styled.div`
-  background: #e00000;
+  /* background: #e00000; */
   color: #ffffff;
 `;

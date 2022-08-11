@@ -9,6 +9,8 @@ import {
   SET_READ_LIST_POST,
   DELETE_READ_LIST_POST,
   SET_FILTER_POSTS,
+  UPDATE_CURRENT_POST_START,
+  UPDATE_CURRENT_POST_SUCCESS,
 } from './types';
 
 const initialState = {
@@ -21,6 +23,7 @@ const initialState = {
   readListPosts: [],
   filterPosts: [],
   filterTitle: 'Classic',
+  loadingUpdate: false,
 };
 
 export default function postsReducer(state = initialState, action) {
@@ -100,6 +103,22 @@ export default function postsReducer(state = initialState, action) {
         //   console.log('match', match);
         //   if (match) return post;
         // }),
+      };
+    }
+
+    case UPDATE_CURRENT_POST_START: {
+      console.log(action);
+      return {
+        ...state,
+        loadingUpdate: true,
+      };
+    }
+    case UPDATE_CURRENT_POST_SUCCESS: {
+      console.log(action);
+      return {
+        ...state,
+        posts: state.posts,
+        loadingUpdate: false,
       };
     }
 

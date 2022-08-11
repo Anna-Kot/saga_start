@@ -9,6 +9,8 @@ import {
   SET_READ_LIST_POST,
   DELETE_READ_LIST_POST,
   SET_FILTER_POSTS,
+  UPDATE_CURRENT_POST_START,
+  UPDATE_CURRENT_POST_SUCCESS,
 } from './types';
 
 export const loadPosts = payload => ({
@@ -53,5 +55,14 @@ export const deleteReadListPost = payload => ({
 
 export const setFilterPosts = payload => ({
   type: SET_FILTER_POSTS,
+  payload,
+});
+
+export const updateCurrentPostStart = payload => ({
+  type: UPDATE_CURRENT_POST_START,
+  payload,
+});
+export const updateCurrentPostSuccess = payload => ({
+  type: UPDATE_CURRENT_POST_SUCCESS,
   payload,
 });

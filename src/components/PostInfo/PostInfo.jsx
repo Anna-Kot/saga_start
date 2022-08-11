@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { deleteReadListPost, removeSinglePostStart } from '../../store/post/actions';
 import EditingButtonContainer from '../EditingButtonContainer/EditingButtonContainer';
 import ClosePostListButton from '../ClosePostListButton/ClosePostListButton';
 import TagsContainer from '../TagsContainer/TagsContainer';
+import PopupDeletePost from '../PopupDeletePost';
+import PopupUpdateCreatePost from '../PopupUpdateCreatePost';
 
-import BackdropPopup from '../BackdropPopup';
-import PopupButtonsBlock from '../PopupButtonsBlock';
-import { deleteReadListPost, removeSinglePostStart } from '../../store/post/actions';
 import * as s from '../PostInfo/PostInfo.styled';
 
-const PostInfo = ({ type = 'regular', post, id, handleOpenPostById }) => {
+const PostInfo = ({ type = 'regular', post, id, handleOpenPostById, sendButton = 'Save', bgBtnColor = '#1C67F0' }) => {
   const dispatch = useDispatch();
 
   const handleDeletePostFromList = event => {
@@ -30,6 +30,13 @@ const PostInfo = ({ type = 'regular', post, id, handleOpenPostById }) => {
     setShowDeletePopup(!showDeletePopup);
   };
 
+  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
+  const handleShowUpdatePopup = event => {
+    event.stopPropagation();
+    setShowUpdatePopup(!showUpdatePopup);
+    console.log(post);
+  };
+
   return (
     <>
       <s.BorderWrraper onClick={() => handleOpenPostById(post.id)}>
@@ -40,22 +47,26 @@ const PostInfo = ({ type = 'regular', post, id, handleOpenPostById }) => {
         ) : (
           <EditingButtonContainer
             post={post}
-            // handleDeleteFromPosts={handleDeleteFromPosts}
             handleShowDeletePopup={handleShowDeletePopup}
+            handleShowUpdatePopup={handleShowUpdatePopup}
           ></EditingButtonContainer>
         )}
       </s.BorderWrraper>
       {showDeletePopup && (
-        <BackdropPopup>
-          <s.PopupBlock>
-            <p>Are you sure you want to remove this post?</p>
-            <PopupButtonsBlock
-              setShowDeletePopup={setShowDeletePopup}
-              showDeletePopup={showDeletePopup}
-              handleDeleteFromPosts={handleDeleteFromPosts}
-            ></PopupButtonsBlock>
-          </s.PopupBlock>
-        </BackdropPopup>
+        <PopupDeletePost
+          setShowDeletePopup={setShowDeletePopup}
+          showDeletePopup={showDeletePopup}
+          handleDeleteFromPosts={handleDeleteFromPosts}
+        ></PopupDeletePost>
+      )}
+
+      {showUpdatePopup && (
+        <PopupUpdateCreatePost
+          setShowUpdatePopup={setShowUpdatePopup}
+          showUpdatePopup={showUpdatePopup}
+          bgBtnColor={bgBtnColor}
+          post={post}
+        ></PopupUpdateCreatePost>
       )}
     </>
   );

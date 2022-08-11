@@ -12,3 +12,6 @@ export const SET_READ_LIST_POST = 'readlist/SET_READ_LIST_POST';
 export const DELETE_READ_LIST_POST = 'readlist/DELETE_READ_LIST_POST';
 
 export const SET_FILTER_POSTS = 'readlist/SET_FILTER_POSTS';
+
+export const UPDATE_CURRENT_POST_START = 'updatePopup/UPDATE_CURRENT_POST_START';
+export const UPDATE_CURRENT_POST_SUCCESS = 'updatePopup/UPDATE_CURRENT_POST_SUCCESS';
