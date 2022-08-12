@@ -31,6 +31,7 @@ function* loadCurrentPostWorker(action) {
 
 function* deleteCurrentPostWorker(action) {
   console.log(action);
+  console.log(action.payload.id);
   try {
     yield call(deleteSinglePostRequest, action.payload.id);
     yield put(removeSinglePostSuccess(action.payload.id));
@@ -42,8 +43,9 @@ function* deleteCurrentPostWorker(action) {
 function* updateCurrentPostWorker(action) {
   console.log(action);
   try {
-    const { data } = yield call(updateSinglePostRequest, action.payload.id);
+    const { data } = yield call(updateSinglePostRequest, action.payload.id, action.payload);
     yield put(updateCurrentPostSuccess(data));
+    console.log(data);
   } catch (error) {
     console.log(error);
   }

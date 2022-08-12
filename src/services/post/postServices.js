@@ -7,7 +7,7 @@ export const deleteSinglePostRequest = async id => axios.delete(`/posts/${id}`);
 
 export const createSinglePostRequest = async id => axios.post(`/posts`, 'маю отрмати з параметра і прокинути в сагу');
 
-export const updateSinglePostRequest = async id => axios.put(`/posts/${id}`);
+export const updateSinglePostRequest = async (id, body) => axios.put(`/posts/${id}`, body);
 
 // add  /posts
 // update put /posts/id

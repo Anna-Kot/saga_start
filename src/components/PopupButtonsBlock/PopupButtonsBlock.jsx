@@ -26,6 +26,7 @@ const PopupButtonsBlock = ({
     } else if (showUpdatePopup) {
       onClickHandler();
       console.log('update post');
+      setShowUpdatePopup(!showUpdatePopup);
     }
   };
 

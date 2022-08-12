@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import BackdropPopup from '../BackdropPopup';
 import PopupButtonsBlock from '../PopupButtonsBlock';
+
+import { updateCurrentPostStart } from '../../store/post/actions';
 
 import * as s from '../PopupUpdateCreatePost/PopupUpdateCreatePost.styled';
 
 const PopupUpdateCreatePost = ({ setShowUpdatePopup, showUpdatePopup, bgBtnColor, post }) => {
   const [currentTitle, setCurrentTitle] = useState(post.title);
   const [currentBody, setCurrentBody] = useState(post.body);
+  const dispatch = useDispatch();
 
-  const addNewData = () => {
+  const updateNewData = () => {
     let newData = {
+      ...post,
       title: currentTitle,
       body: currentBody,
     };
     console.log(newData);
+    dispatch(updateCurrentPostStart(newData));
   };
 
   return (
@@ -47,7 +53,8 @@ const PopupUpdateCreatePost = ({ setShowUpdatePopup, showUpdatePopup, bgBtnColor
           showUpdatePopup={showUpdatePopup}
           sendButton="Save Changes"
           bgBtnColor={bgBtnColor}
-          onClickHandler={addNewData}
+          onClickHandler={updateNewData}
+          //   handleUpdatePost={handleUpdatePost}
         ></PopupButtonsBlock>
       </s.PopupBlock>
     </BackdropPopup>

@@ -117,7 +117,13 @@ export default function postsReducer(state = initialState, action) {
       console.log(action);
       return {
         ...state,
-        posts: state.posts,
+        posts: state.posts.map(post => {
+          if (post.id === action.payload.id) {
+            return action.payload;
+          } else {
+            return post;
+          }
+        }),
         loadingUpdate: false,
       };
     }
