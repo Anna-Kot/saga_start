@@ -10,7 +10,7 @@ import PopupUpdateCreatePost from '../PopupUpdateCreatePost';
 
 import * as s from '../PostInfo/PostInfo.styled';
 
-const PostInfo = ({ type = 'regular', post, id, handleOpenPostById, sendButton = 'Save', bgBtnColor = '#1C67F0' }) => {
+const PostInfo = ({ type = 'regular', post, id, handleOpenPostById, bgBtnColor = '#1C67F0' }) => {
   const dispatch = useDispatch();
 
   const handleDeletePostFromList = event => {

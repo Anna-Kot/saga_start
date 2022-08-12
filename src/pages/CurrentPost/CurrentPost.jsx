@@ -8,14 +8,14 @@ import EditingButtonContainer from '../../components/EditingButtonContainer/Edit
 import TagsContainer from '../../components/TagsContainer/TagsContainer';
 import { loadCurrentPost, clearCurrentPost, removeSinglePostStart } from '../../store/post/actions';
 import loadingImg from '../../assets/img/loading.gif';
-import BackdropPopup from '../../components/BackdropPopup';
-import PopupButtonsBlock from '../../components/PopupButtonsBlock';
+import PopupDeletePost from '../../components/PopupDeletePost';
+import PopupUpdateCreatePost from '../../components/PopupUpdateCreatePost';
 
 import * as s from './CurrentPost.styled';
 
 import { ReactComponent as ArrowBack } from '../../assets/svg/ArrowBack.svg';
 
-const CurrentPost = () => {
+const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
   const dispatch = useDispatch();
   const post = useSelector(state => state.Posts.openedPost);
   const loading = useSelector(state => state.Posts.loadingCurrentPost);
@@ -49,6 +49,12 @@ const CurrentPost = () => {
     event.stopPropagation();
     setShowDeletePopup(!showDeletePopup);
   };
+  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
+  const handleShowUpdatePopup = event => {
+    event.stopPropagation();
+    setShowUpdatePopup(!showUpdatePopup);
+    console.log(post);
+  };
 
   useEffect(() => {
     handleLoadSinglePost(id);
@@ -71,21 +77,29 @@ const CurrentPost = () => {
         <Title title={post?.title} />
         <s.ButtonWrraper>
           <TagsContainer tagsList={post?.tags}></TagsContainer>
-          <EditingButtonContainer post={post} handleShowDeletePopup={handleShowDeletePopup}></EditingButtonContainer>
+          <EditingButtonContainer
+            post={post}
+            handleShowDeletePopup={handleShowDeletePopup}
+            handleShowUpdatePopup={handleShowUpdatePopup}
+          ></EditingButtonContainer>
         </s.ButtonWrraper>
         <p>{post?.body}</p>
       </s.MainWrraper>
       {showDeletePopup && (
-        <BackdropPopup>
-          <s.PopupBlock>
-            <p>Are you sure you want to remove this post?</p>
-            <PopupButtonsBlock
-              setShowDeletePopup={setShowDeletePopup}
-              showDeletePopup={showDeletePopup}
-              handleDeleteFromPosts={handleDeleteFromPosts}
-            ></PopupButtonsBlock>
-          </s.PopupBlock>
-        </BackdropPopup>
+        <PopupDeletePost
+          setShowDeletePopup={setShowDeletePopup}
+          showDeletePopup={showDeletePopup}
+          handleDeleteFromPosts={handleDeleteFromPosts}
+        ></PopupDeletePost>
+      )}
+
+      {showUpdatePopup && (
+        <PopupUpdateCreatePost
+          setShowUpdatePopup={setShowUpdatePopup}
+          showUpdatePopup={showUpdatePopup}
+          bgBtnColor={bgBtnColor}
+          post={post}
+        ></PopupUpdateCreatePost>
       )}
     </>
   );

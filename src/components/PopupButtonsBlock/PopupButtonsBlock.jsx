@@ -25,8 +25,8 @@ const PopupButtonsBlock = ({
       handleDeleteFromPosts(event);
     } else if (showUpdatePopup) {
       onClickHandler();
-      console.log('update post');
       setShowUpdatePopup(!showUpdatePopup);
+      // window.location.reload();
     }
   };
 
