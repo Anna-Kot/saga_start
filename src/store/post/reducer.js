@@ -11,6 +11,8 @@ import {
   SET_FILTER_POSTS,
   UPDATE_CURRENT_POST_START,
   UPDATE_CURRENT_POST_SUCCESS,
+  CREATE_CURRENT_POST_START,
+  CREATE_CURRENT_POST_SUCCESS,
 } from './types';
 
 const initialState = {
@@ -124,6 +126,22 @@ export default function postsReducer(state = initialState, action) {
             return post;
           }
         }),
+        loadingUpdate: false,
+      };
+    }
+
+    case CREATE_CURRENT_POST_START: {
+      console.log(action);
+      return {
+        ...state,
+        loadingUpdate: true,
+      };
+    }
+    case CREATE_CURRENT_POST_SUCCESS: {
+      console.log(action);
+      return {
+        ...state,
+        posts: action.payload,
         loadingUpdate: false,
       };
     }

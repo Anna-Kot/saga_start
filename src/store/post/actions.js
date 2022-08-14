@@ -11,6 +11,8 @@ import {
   SET_FILTER_POSTS,
   UPDATE_CURRENT_POST_START,
   UPDATE_CURRENT_POST_SUCCESS,
+  CREATE_CURRENT_POST_START,
+  CREATE_CURRENT_POST_SUCCESS,
 } from './types';
 
 export const loadPosts = payload => ({
@@ -64,5 +66,14 @@ export const updateCurrentPostStart = payload => ({
 });
 export const updateCurrentPostSuccess = payload => ({
   type: UPDATE_CURRENT_POST_SUCCESS,
+  payload,
+});
+
+export const createCurrentPostStart = payload => ({
+  type: CREATE_CURRENT_POST_START,
+  payload,
+});
+export const createCurrentPostSuccess = payload => ({
+  type: CREATE_CURRENT_POST_SUCCESS,
   payload,
 });
