@@ -141,7 +141,7 @@ export default function postsReducer(state = initialState, action) {
       console.log(action);
       return {
         ...state,
-        posts: action.payload,
+        posts: [...state.posts, action.payload],
         loadingUpdate: false,
       };
     }

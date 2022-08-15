@@ -1,36 +1,29 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import PostInfo from '../../components//PostInfo';
 import Title from '../../components/Title';
 import SideBar from '../../containers/SideBar';
 import loadingImg from '../../assets/img/loading.gif';
+import PopupUpdateCreatePost from '../../components/PopupUpdateCreatePost';
 
 import * as s from './PostsPage.styled';
 
-const PostsPage = () => {
-  // const dispatch = useDispatch();
+const PostsPage = ({ bgBtnColor = '#1C67F0' }) => {
   const posts = useSelector(state => state.Posts.posts);
   console.log(posts);
   const loading = useSelector(state => state.Posts.loading);
-
-  // const handleLoadPosts = id => {
-  //   // const payload = {
-  //   //   postId: id,
-  //   // };
-  //   // dispatch(loadCurrentPost(payload));
-
-  //   dispatch(loadPosts());
-  // };
 
   const navigate = useNavigate();
 
   const handleOpenPostById = id => navigate(`/posts/${id}`);
 
-  // useEffect(() => {
-  //   handleLoadPosts();
-  // }, []);
+  const [showCreatePopup, setShowCreatePopup] = useState(false);
+  const handleShowCreatePopup = event => {
+    event.stopPropagation();
+    setShowCreatePopup(!showCreatePopup);
+  };
 
   return (
     <>
@@ -42,6 +35,7 @@ const PostsPage = () => {
             <img src={loadingImg} alt="loading..." />
           </s.LoadingBlock>
         )}
+        <s.TestCreate onClick={handleShowCreatePopup} />
         <Title title="All Posts" />
         <s.PostsColumn>
           {posts.map(post => (
@@ -49,6 +43,13 @@ const PostsPage = () => {
           ))}
         </s.PostsColumn>
       </s.MainWrraper>
+      {showCreatePopup && (
+        <PopupUpdateCreatePost
+          setShowCreatePopup={setShowCreatePopup}
+          showCreatePopup={showCreatePopup}
+          bgBtnColor={bgBtnColor}
+        ></PopupUpdateCreatePost>
+      )}
     </>
   );
 };

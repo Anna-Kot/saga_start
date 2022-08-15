@@ -67,13 +67,6 @@ const SideBar = () => {
     navigate(path);
   };
 
-  // const onClickHandlerNavigate = text => {
-  //   if (text === 'All Posts') {
-  //     navigate('/posts');
-  //   } else if (text === 'Read List') {
-  //     navigate('/readlist');
-  //   }
-  // };
   return (
     <s.MainWrraper>
       {SIDEBAR_BUTTONS.map(({ text, type, tag, path, markerColor, IconComponent }) => {

@@ -34,3 +34,12 @@ export const LoadingText = styled.h1`
   left: 43%;
   margin-top: 83px;
 `;
+
+export const TestCreate = styled.div`
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: red;
+  top: 30px;
+  left: 0;
+`;

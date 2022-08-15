@@ -17,21 +17,15 @@ import { ReactComponent as ArrowBack } from '../../assets/svg/ArrowBack.svg';
 
 const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
   const dispatch = useDispatch();
+  const posts = useSelector(state => state.Posts.posts);
   const post = useSelector(state => state.Posts.openedPost);
   const loading = useSelector(state => state.Posts.loadingCurrentPost);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
-  // console.log(id);
-  // const params = useParams();
-  // console.log(params);
 
   const handleLoadSinglePost = id => {
-    // const payload = {
-    //   postId: id,
-    // };
-    // dispatch(loadCurrentPost(payload));
     dispatch(loadCurrentPost({ id }));
   };
   const handleCloseCurrentPost = () => {
@@ -61,7 +55,7 @@ const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
     return () => {
       dispatch(clearCurrentPost(post));
     };
-  }, []);
+  }, [posts]);
 
   return (
     <>

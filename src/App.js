@@ -13,12 +13,7 @@ import FilterPosts from './pages/FilterPosts/FilterPosts';
 function App() {
   const dispatch = useDispatch();
 
-  const handleLoadPosts = id => {
-    // const payload = {
-    //   postId: id,
-    // };
-    // dispatch(loadCurrentPost(payload));
-
+  const handleLoadPosts = () => {
     dispatch(loadPosts());
   };
   useEffect(() => {

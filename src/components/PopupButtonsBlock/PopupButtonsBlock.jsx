@@ -8,6 +8,8 @@ const PopupButtonsBlock = ({
   handleDeleteFromPosts,
   showUpdatePopup,
   setShowUpdatePopup,
+  showCreatePopup,
+  setShowCreatePopup,
   sendButton,
   bgBtnColor,
   onClickHandler,
@@ -17,6 +19,8 @@ const PopupButtonsBlock = ({
       setShowDeletePopup(!showDeletePopup);
     } else if (showUpdatePopup) {
       setShowUpdatePopup(!showUpdatePopup);
+    } else if (showCreatePopup) {
+      setShowCreatePopup(!showCreatePopup);
     }
   };
 
@@ -27,6 +31,9 @@ const PopupButtonsBlock = ({
       onClickHandler();
       setShowUpdatePopup(!showUpdatePopup);
       // window.location.reload();
+    } else if (showCreatePopup) {
+      onClickHandler();
+      setShowCreatePopup(!showCreatePopup);
     }
   };
 
