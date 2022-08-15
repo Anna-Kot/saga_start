@@ -67,7 +67,7 @@ function* updateCurrentPostWorker(action) {
 function* createCurrentPostWorker(action) {
   console.log(action);
   try {
-    const { data } = yield call(createSinglePostRequest, action.payload.id, action.payload);
+    const { data } = yield call(createSinglePostRequest, action.payload);
     yield put(createCurrentPostSuccess(data));
     console.log(data);
   } catch (error) {

@@ -16,6 +16,8 @@ const SidebarButton = ({
   markerColor = '',
   activeButton,
   setActiveButton,
+  handleShowCreatePopup,
+  showCreatePopup,
   onNavigate = () => null,
   IconComponent = () => null,
 }) => {
@@ -24,12 +26,16 @@ const SidebarButton = ({
   const filterPosts = useSelector(state => state.Posts.filterPosts);
   // console.log(filterPosts);
   const handleButtonOnClick = () => {
-    setActiveButton(text);
-    onNavigate();
-    console.log(tag);
-    console.log(filterPosts);
-    if (tag !== null) {
-      dispatch(setFilterPosts(tag));
+    if (text === 'Add new post') {
+      handleShowCreatePopup();
+    } else {
+      setActiveButton(text);
+      onNavigate();
+      console.log(tag);
+      console.log(filterPosts);
+      if (tag !== null) {
+        dispatch(setFilterPosts(tag));
+      }
     }
   };
 

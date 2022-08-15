@@ -5,7 +5,7 @@ export const getSinglePostRequest = async id => axios.get(`/posts/${id}`);
 
 export const deleteSinglePostRequest = async id => axios.delete(`/posts/${id}`);
 
-export const createSinglePostRequest = async (id, body) => axios.post(`/posts`, body);
+export const createSinglePostRequest = async body => axios.post(`/posts`, body);
 
 export const updateSinglePostRequest = async (id, body) => axios.put(`/posts/${id}`, body);
 

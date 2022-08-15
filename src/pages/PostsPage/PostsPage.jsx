@@ -19,11 +19,11 @@ const PostsPage = ({ bgBtnColor = '#1C67F0' }) => {
 
   const handleOpenPostById = id => navigate(`/posts/${id}`);
 
-  const [showCreatePopup, setShowCreatePopup] = useState(false);
-  const handleShowCreatePopup = event => {
-    event.stopPropagation();
-    setShowCreatePopup(!showCreatePopup);
-  };
+  // const [showCreatePopup, setShowCreatePopup] = useState(false);
+  // const handleShowCreatePopup = event => {
+  //   event.stopPropagation();
+  //   setShowCreatePopup(!showCreatePopup);
+  // };
 
   return (
     <>
@@ -35,7 +35,9 @@ const PostsPage = ({ bgBtnColor = '#1C67F0' }) => {
             <img src={loadingImg} alt="loading..." />
           </s.LoadingBlock>
         )}
-        <s.TestCreate onClick={handleShowCreatePopup} />
+
+        {/* <s.TestCreate onClick={handleShowCreatePopup} /> */}
+
         <Title title="All Posts" />
         <s.PostsColumn>
           {posts.map(post => (
@@ -43,13 +45,14 @@ const PostsPage = ({ bgBtnColor = '#1C67F0' }) => {
           ))}
         </s.PostsColumn>
       </s.MainWrraper>
-      {showCreatePopup && (
+
+      {/* {showCreatePopup && (
         <PopupUpdateCreatePost
           setShowCreatePopup={setShowCreatePopup}
           showCreatePopup={showCreatePopup}
           bgBtnColor={bgBtnColor}
         ></PopupUpdateCreatePost>
-      )}
+      )} */}
     </>
   );
 };

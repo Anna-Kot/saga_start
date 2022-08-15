@@ -86,7 +86,6 @@ const PopupUpdateCreatePost = ({
 
   const createNewData = () => {
     let newData = {
-      id: posts.length + 1,
       title: currentTitle,
       body: currentBody,
       userId: posts.length + 1,
