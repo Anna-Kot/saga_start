@@ -16,59 +16,6 @@ const PopupUpdateCreatePost = ({
   bgBtnColor,
   post,
 }) => {
-  // const posts = useSelector(state => state.Posts.posts);
-  // const [currentTitle, setCurrentTitle] = useState(post.title);
-  // const [currentBody, setCurrentBody] = useState(post.body);
-  // const dispatch = useDispatch();
-
-  // const updateNewData = () => {
-  //   let newData = {
-  //     ...post,
-  //     title: currentTitle,
-  //     body: currentBody,
-  //   };
-  //   console.log(newData);
-  //   dispatch(updateCurrentPostStart(newData));
-  // };
-
-  // const [newTitle, setNewTitle] = useState('');
-  // const [newBody, setNewBody] = useState('');
-
-  // const createNewData = () => {
-  //   let newData = {
-  //     id: posts.length + 1,
-  //     title: newTitle,
-  //     body: newBody,
-  //     userId: posts.length + 1,
-  //     tags: ['classic', 'fiction', 'english'],
-  //     reactions: 2,
-  //   };
-  //   console.log(newData);
-  //   dispatch(createCurrentPostStart(newData));
-  // };
-
-  // const handleUpdateOrCreatePopup = () => {
-  //   if (showUpdatePopup) {
-  //     updateNewData();
-  //   } else if (showCreatePopup) {
-  //     createNewData();
-  //   }
-  // };
-  // const onChangeEventCreateUpdatePopupTitle = event => {
-  //   if (showUpdatePopup) {
-  //     setCurrentTitle(event.target.value);
-  //   } else if (showCreatePopup) {
-  //     setNewTitle(event.target.value);
-  //   }
-  // };
-  // const onChangeEventCreateUpdatePopupBody = event => {
-  //   if (showUpdatePopup) {
-  //     setCurrentBody(event.target.value);
-  //   } else if (showCreatePopup) {
-  //     setNewBody(event.target.value);
-  //   }
-  // };
-
   const posts = useSelector(state => state.Posts.posts);
   const dispatch = useDispatch();
   const [currentTitle, setCurrentTitle] = useState(showUpdatePopup ? post.title : '');
