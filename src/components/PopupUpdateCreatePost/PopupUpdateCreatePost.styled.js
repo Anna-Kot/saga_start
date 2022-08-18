@@ -33,6 +33,10 @@ export const TitleBlock = styled.div`
     padding-left: 20px;
     border: 2px solid #e7e8e9;
     font: 400 16px/19px 'Inter';
+
+    &:focus {
+      outline: none;
+    }
   }
 `;
 export const DescriptionBlock = styled.div`

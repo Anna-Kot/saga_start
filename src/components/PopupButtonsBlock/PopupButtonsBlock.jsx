@@ -16,8 +16,7 @@ const PopupButtonsBlock = ({
   sendButton,
   bgBtnColor,
   onClickHandler,
-  characterCountTitle,
-  characterCountBody,
+  isValidated = true,
   id,
 }) => {
   const dispatch = useDispatch();
@@ -40,7 +39,7 @@ const PopupButtonsBlock = ({
       console.log(readList.length);
       readList.filter(post => post.id !== id);
     } else if (showUpdatePopup) {
-      if (characterCountTitle < 4 || characterCountTitle > 72 || characterCountBody < 8 || characterCountBody > 510) {
+      if (!isValidated) {
         // document.getElementsByClassName('disable').style.backgroundColor = '#7E7E7E';
         event.target.style.background = '#7E7E7E';
         console.log('characters');
@@ -59,7 +58,7 @@ const PopupButtonsBlock = ({
   return (
     <s.ButtonsContainer>
       <s.CancelButton onClick={handleClosePopup}>Cancel</s.CancelButton>
-      <s.SaveButton className="disable" style={{ background: bgBtnColor }} onClick={handleConfirmButton}>
+      <s.SaveButton isValidated={isValidated} bgBtnColor={bgBtnColor} onClick={handleConfirmButton}>
         {sendButton}
       </s.SaveButton>
     </s.ButtonsContainer>

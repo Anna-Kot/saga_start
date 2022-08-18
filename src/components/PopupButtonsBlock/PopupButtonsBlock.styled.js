@@ -30,6 +30,7 @@ export const CancelButton = styled.div`
   }
 `;
 export const SaveButton = styled.div`
+  background: ${props => (props.isValidated ? props.bgBtnColor : 'silver')};
   /* background: #e00000; */
   color: #ffffff;
 `;

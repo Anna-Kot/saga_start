@@ -87,10 +87,11 @@ export default function postsReducer(state = initialState, action) {
       };
     }
     case DELETE_READ_LIST_POST: {
+      const readListPosts = state.readListPosts.filter(post => post.id !== action.payload);
       return {
         ...state,
-        readListPosts: state.readListPosts.filter(post => post.id !== action.payload),
-        countOfList: state.readListPosts.length,
+        readListPosts,
+        countOfList: readListPosts.length,
       };
     }
     case SET_FILTER_POSTS: {
