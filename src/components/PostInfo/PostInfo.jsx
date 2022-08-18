@@ -57,6 +57,7 @@ const PostInfo = ({ type = 'regular', post, id, handleOpenPostById, bgBtnColor =
           setShowDeletePopup={setShowDeletePopup}
           showDeletePopup={showDeletePopup}
           handleDeleteFromPosts={handleDeleteFromPosts}
+          id={id}
         ></PopupDeletePost>
       )}
 

@@ -19,6 +19,7 @@ export const TitleBlock = styled.div`
   display: flex;
   margin: 50px 50px;
   justify-content: space-between;
+  position: relative;
 
   label {
     font: 500 20px/24px 'Inter';
@@ -38,6 +39,7 @@ export const DescriptionBlock = styled.div`
   display: flex;
   margin: 0px 50px 50px 50px;
   justify-content: space-between;
+  position: relative;
 
   label {
     font: 500 20px/24px 'Inter';
@@ -52,5 +54,29 @@ export const DescriptionBlock = styled.div`
     padding: 20px;
     border: 2px solid #e7e8e9;
     font: 400 16px/19px 'Inter';
+  }
+`;
+
+export const ErrorMessageTitleBody = styled.div`
+  position: absolute;
+  font: 500 13px/16px 'Inter';
+  color: #e00000;
+  top: 64px;
+  left: 180px;
+
+  &.body-error {
+    top: 126px;
+  }
+`;
+export const NumberOfCharacters = styled.h5`
+  margin: 0;
+  position: absolute;
+  font: 500 13px/16px 'Inter';
+  color: #e00000;
+  top: 64px;
+  left: 660px;
+
+  &.body-error {
+    top: 126px;
   }
 `;

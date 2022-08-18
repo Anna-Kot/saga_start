@@ -21,6 +21,9 @@ const PopupUpdateCreatePost = ({
   const [currentTitle, setCurrentTitle] = useState(showUpdatePopup ? post.title : '');
   const [currentBody, setCurrentBody] = useState(showUpdatePopup ? post.body : '');
 
+  const [characterCountTitle, setCharacterCountTitle] = useState(showUpdatePopup ? post.title.length : 0);
+  const [characterCountBody, setCharacterCountBody] = useState(showUpdatePopup ? post.body.length : 0);
+
   const updateNewData = () => {
     let newData = {
       ...post,
@@ -51,6 +54,25 @@ const PopupUpdateCreatePost = ({
     }
   };
 
+  const hadleOnChangeTitle = event => {
+    setCurrentTitle(event.target.value);
+    setCharacterCountTitle(event.target.value.length);
+    if (event.target.value.length < 4 || event.target.value.length > 72) {
+      event.target.style.borderColor = '#E00000';
+    } else {
+      event.target.style.borderColor = '#e7e8e9';
+    }
+  };
+  const hadleOnChangeBody = event => {
+    setCurrentBody(event.target.value);
+    setCharacterCountBody(event.target.value.length);
+    if (event.target.value.length < 8 || event.target.value.length > 510) {
+      event.target.style.borderColor = '#E00000';
+    } else {
+      event.target.style.borderColor = '#e7e8e9';
+    }
+  };
+
   return (
     <BackdropPopup>
       <s.PopupBlock>
@@ -64,8 +86,16 @@ const PopupUpdateCreatePost = ({
             name="title"
             placeholder="New Title Name"
             defaultValue={currentTitle}
-            onChange={event => setCurrentTitle(event.target.value)}
+            onChange={hadleOnChangeTitle}
           />
+          {characterCountTitle < 4 || characterCountTitle > 72 ? (
+            <s.ErrorMessageTitleBody>
+              Please enter at least 4 characters and not more than 64 characters.
+            </s.ErrorMessageTitleBody>
+          ) : (
+            ''
+          )}
+          <s.NumberOfCharacters>({characterCountTitle})</s.NumberOfCharacters>
         </s.TitleBlock>
         <s.DescriptionBlock>
           <label>Description</label>
@@ -74,8 +104,16 @@ const PopupUpdateCreatePost = ({
             name="description"
             placeholder="Here is a description for the new post, coming soon...."
             defaultValue={currentBody}
-            onChange={event => setCurrentBody(event.target.value)}
+            onChange={hadleOnChangeBody}
           />
+          {characterCountBody < 8 || characterCountBody > 510 ? (
+            <s.ErrorMessageTitleBody className="body-error">
+              The length of the post cannot be less than 8 and more than 390 characters.
+            </s.ErrorMessageTitleBody>
+          ) : (
+            ''
+          )}
+          <s.NumberOfCharacters className="body-error">({characterCountBody})</s.NumberOfCharacters>
         </s.DescriptionBlock>
         <PopupButtonsBlock
           setShowUpdatePopup={setShowUpdatePopup}
@@ -85,6 +123,8 @@ const PopupUpdateCreatePost = ({
           sendButton="Save Changes"
           bgBtnColor={bgBtnColor}
           onClickHandler={handleUpdateOrCreatePopup}
+          characterCountBody={characterCountBody}
+          characterCountTitle={characterCountTitle}
           //   handleUpdatePost={handleUpdatePost}
         ></PopupButtonsBlock>
       </s.PopupBlock>

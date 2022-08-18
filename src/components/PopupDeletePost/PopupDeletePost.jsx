@@ -5,7 +5,7 @@ import PopupButtonsBlock from '../PopupButtonsBlock';
 
 import * as s from '../PopupDeletePost/PopupDeletePost.styled';
 
-const PopupDeletePost = ({ setShowDeletePopup, showDeletePopup, handleDeleteFromPosts }) => {
+const PopupDeletePost = ({ setShowDeletePopup, showDeletePopup, handleDeleteFromPosts, id }) => {
   return (
     <BackdropPopup>
       <s.PopupBlock>
@@ -16,6 +16,7 @@ const PopupDeletePost = ({ setShowDeletePopup, showDeletePopup, handleDeleteFrom
           handleDeleteFromPosts={handleDeleteFromPosts}
           sendButton="Confirm"
           bgBtnColor="#E00000"
+          id={id}
         ></PopupButtonsBlock>
       </s.PopupBlock>
     </BackdropPopup>

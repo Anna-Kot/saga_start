@@ -90,7 +90,7 @@ export default function postsReducer(state = initialState, action) {
       return {
         ...state,
         readListPosts: state.readListPosts.filter(post => post.id !== action.payload),
-        countOfList: --state.countOfList,
+        countOfList: state.readListPosts.length,
       };
     }
     case SET_FILTER_POSTS: {

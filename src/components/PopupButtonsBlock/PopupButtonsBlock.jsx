@@ -1,4 +1,7 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { deleteReadListPost } from '../../store/post/actions';
 
 import * as s from './PopupButtonsBlock.styled';
 
@@ -13,7 +16,12 @@ const PopupButtonsBlock = ({
   sendButton,
   bgBtnColor,
   onClickHandler,
+  characterCountTitle,
+  characterCountBody,
+  id,
 }) => {
+  const dispatch = useDispatch();
+  const readList = useSelector(state => state.Posts.readListPosts);
   const handleClosePopup = () => {
     if (showDeletePopup) {
       setShowDeletePopup(!showDeletePopup);
@@ -27,9 +35,20 @@ const PopupButtonsBlock = ({
   const handleConfirmButton = event => {
     if (showDeletePopup) {
       handleDeleteFromPosts(event);
+      console.log(id);
+      dispatch(deleteReadListPost(id));
+      console.log(readList.length);
+      readList.filter(post => post.id !== id);
     } else if (showUpdatePopup) {
-      onClickHandler();
-      setShowUpdatePopup(!showUpdatePopup);
+      if (characterCountTitle < 4 || characterCountTitle > 72 || characterCountBody < 8 || characterCountBody > 510) {
+        // document.getElementsByClassName('disable').style.backgroundColor = '#7E7E7E';
+        event.target.style.background = '#7E7E7E';
+        console.log('characters');
+      } else {
+        onClickHandler();
+        setShowUpdatePopup(!showUpdatePopup);
+      }
+
       // window.location.reload();
     } else if (showCreatePopup) {
       onClickHandler();
@@ -40,7 +59,7 @@ const PopupButtonsBlock = ({
   return (
     <s.ButtonsContainer>
       <s.CancelButton onClick={handleClosePopup}>Cancel</s.CancelButton>
-      <s.SaveButton style={{ background: bgBtnColor }} onClick={handleConfirmButton}>
+      <s.SaveButton className="disable" style={{ background: bgBtnColor }} onClick={handleConfirmButton}>
         {sendButton}
       </s.SaveButton>
     </s.ButtonsContainer>
