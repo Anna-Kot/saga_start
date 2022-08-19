@@ -84,6 +84,7 @@ const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
           setShowDeletePopup={setShowDeletePopup}
           showDeletePopup={showDeletePopup}
           handleDeleteFromPosts={handleDeleteFromPosts}
+          id={id}
         ></PopupDeletePost>
       )}
 

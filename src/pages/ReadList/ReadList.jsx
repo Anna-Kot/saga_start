@@ -11,7 +11,7 @@ import * as s from './ReadList.styled';
 const ReadList = () => {
   const navigate = useNavigate();
   const readList = useSelector(state => state.Posts.readListPosts);
-  // const handleOpenPostById = id => navigate(`/posts/${id}`);
+  console.log(readList);
   const handleOpenPostById = id => {
     if (id === 1) console.log('RENDER ID1 post!!!');
 

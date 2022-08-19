@@ -40,15 +40,12 @@ const PopupButtonsBlock = ({
       readList.filter(post => post.id !== id);
     } else if (showUpdatePopup) {
       if (!isValidated) {
-        // document.getElementsByClassName('disable').style.backgroundColor = '#7E7E7E';
         event.target.style.background = '#7E7E7E';
         console.log('characters');
       } else {
         onClickHandler();
         setShowUpdatePopup(!showUpdatePopup);
       }
-
-      // window.location.reload();
     } else if (showCreatePopup) {
       onClickHandler();
       setShowCreatePopup(!showCreatePopup);

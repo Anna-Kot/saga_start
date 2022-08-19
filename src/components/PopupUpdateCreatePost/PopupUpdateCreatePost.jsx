@@ -23,7 +23,7 @@ const PopupUpdateCreatePost = ({
   const [isValidated, setValidated] = useState(false);
 
   useEffect(() => {
-    if (currentTitle.length < 4 || currentTitle.length > 72 || currentBody.length < 8 || currentBody.length > 510) {
+    if (currentTitle.length <= 4 || currentTitle.length > 72 || currentBody.length <= 8 || currentBody.length > 510) {
       setValidated(false);
     } else {
       setValidated(true);
@@ -71,12 +71,13 @@ const PopupUpdateCreatePost = ({
     }
   };
   const hadleOnChangeBody = event => {
-    setCurrentBody(event.target.value);
+    const elemBody = event.target;
+    setCurrentBody(elemBody.value);
 
-    if (event.target.value.length <= 8 || event.target.value.length > 510) {
-      event.target.style.borderColor = '#E00000';
+    if (elemBody.value.length <= 8 || elemBody.value.length > 510) {
+      elemBody.style.borderColor = '#E00000';
     } else {
-      event.target.style.borderColor = '#e7e8e9';
+      elemBody.style.borderColor = '#e7e8e9';
     }
   };
 
@@ -95,7 +96,7 @@ const PopupUpdateCreatePost = ({
             defaultValue={currentTitle}
             onChange={hadleOnChangeTitle}
           />
-          {currentTitle.length < 4 || currentTitle.length > 72 ? (
+          {currentTitle.length <= 4 || currentTitle.length > 72 ? (
             <s.ErrorMessageTitleBody>
               Please enter at least 4 characters and not more than 64 characters.
             </s.ErrorMessageTitleBody>
@@ -113,7 +114,7 @@ const PopupUpdateCreatePost = ({
             defaultValue={currentBody}
             onChange={hadleOnChangeBody}
           />
-          {currentBody.length < 8 || currentBody.length > 510 ? (
+          {currentBody.length <= 8 || currentBody.length > 510 ? (
             <s.ErrorMessageTitleBody className="body-error">
               The length of the post cannot be less than 8 and more than 390 characters.
             </s.ErrorMessageTitleBody>
