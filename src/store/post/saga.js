@@ -43,8 +43,6 @@ function* loadCurrentPostWorker(action) {
 }
 
 function* deleteCurrentPostWorker(action) {
-  console.log(action);
-  console.log(action.payload.id);
   try {
     yield call(deleteSinglePostRequest, action.payload.id);
     yield put(removeSinglePostSuccess(action.payload.id));

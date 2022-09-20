@@ -21,12 +21,17 @@ const PopupButtonsBlock = ({
 }) => {
   const dispatch = useDispatch();
   const readList = useSelector(state => state.Posts.readListPosts);
+
   const handleClosePopup = () => {
     if (showDeletePopup) {
       setShowDeletePopup(!showDeletePopup);
-    } else if (showUpdatePopup) {
+    }
+
+    if (showUpdatePopup) {
       setShowUpdatePopup(!showUpdatePopup);
-    } else if (showCreatePopup) {
+    }
+
+    if (showCreatePopup) {
       setShowCreatePopup(!showCreatePopup);
     }
   };
@@ -34,19 +39,19 @@ const PopupButtonsBlock = ({
   const handleConfirmButton = event => {
     if (showDeletePopup) {
       handleDeleteFromPosts(event);
-      console.log(id);
       dispatch(deleteReadListPost(id));
-      console.log(readList.length);
-      readList.filter(post => post.id !== id);
-    } else if (showUpdatePopup) {
+    }
+
+    if (showUpdatePopup) {
       if (!isValidated) {
         event.target.style.background = '#7E7E7E';
-        console.log('characters');
       } else {
         onClickHandler();
         setShowUpdatePopup(!showUpdatePopup);
       }
-    } else if (showCreatePopup) {
+    }
+
+    if (showCreatePopup) {
       onClickHandler();
       setShowCreatePopup(!showCreatePopup);
     }

@@ -54,7 +54,6 @@ export default function postsReducer(state = initialState, action) {
       };
     }
     case REMOVE_POST_SUCCESS: {
-      console.log(action.payload);
       return {
         ...state,
         posts: state.posts.filter(post => post.id !== action.payload),
@@ -127,7 +126,6 @@ export default function postsReducer(state = initialState, action) {
       };
     }
     case UPDATE_CURRENT_POST_SUCCESS: {
-      console.log(action);
       return {
         ...state,
         posts: state.posts.map(post => {
