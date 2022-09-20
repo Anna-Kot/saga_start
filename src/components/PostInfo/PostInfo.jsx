@@ -13,28 +13,27 @@ import * as s from '../PostInfo/PostInfo.styled';
 const PostInfo = ({ type = 'regular', post, id, handleOpenPostById, bgBtnColor = '#1C67F0' }) => {
   const dispatch = useDispatch();
 
+  const [showDeletePopup, setShowDeletePopup] = useState(false);
+  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
+
   const handleDeletePostFromList = event => {
     event.stopPropagation();
-
     dispatch(deleteReadListPost(id));
   };
+
   const handleDeleteFromPosts = event => {
     event.stopPropagation();
-
     dispatch(removeSinglePostStart({ id }));
   };
 
-  const [showDeletePopup, setShowDeletePopup] = useState(false);
   const handleShowDeletePopup = event => {
     event.stopPropagation();
     setShowDeletePopup(!showDeletePopup);
   };
 
-  const [showUpdatePopup, setShowUpdatePopup] = useState(false);
   const handleShowUpdatePopup = event => {
     event.stopPropagation();
     setShowUpdatePopup(!showUpdatePopup);
-    console.log(post);
   };
 
   return (

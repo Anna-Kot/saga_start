@@ -36,6 +36,7 @@ export default function postsReducer(state = initialState, action) {
       return {
         ...state,
         posts: action.payload,
+        filterSearchPost: action.payload,
         loading: false,
       };
     }
