@@ -28,9 +28,9 @@ const SearchPage = () => {
     console.log(search);
     dispatch(setFilterSearchPosts(search));
   }
-  useEffect(() => {
-    dispatch(setFilterSearchPosts(search));
-  }, []);
+  // useEffect(() => {
+  //   dispatch(setFilterSearchPosts(search));
+  // }, []);
 
   return (
     <>
