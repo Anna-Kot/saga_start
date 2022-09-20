@@ -15,7 +15,7 @@ export const ButtonContainer = styled.button`
 
   margin-bottom: 8px;
 
-  &:nth-of-type(2) {
+  &:nth-of-type(3) {
     margin-bottom: 35px;
   }
 

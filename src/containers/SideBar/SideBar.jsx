@@ -6,6 +6,7 @@ import SideBarButton from '../../components/SideBarButton';
 import { ReactComponent as ListBarIcon } from '../../assets/svg/ListBar.svg';
 import { ReactComponent as ClipIcon } from '../../assets/svg/Clip.svg';
 import { ReactComponent as PlusPost } from '../../assets/svg/PlusPost.svg';
+import { ReactComponent as SearchIcon } from '../../assets/svg/Search.svg';
 
 import PopupUpdateCreatePost from '../../components/PopupUpdateCreatePost';
 
@@ -23,6 +24,14 @@ const SIDEBAR_BUTTONS = [
     type: 'IconButton',
     IconComponent: ClipIcon,
     path: '/readlist',
+    markerColor: null,
+    tag: null,
+  },
+  {
+    text: 'Search Posts',
+    type: 'IconButton',
+    IconComponent: SearchIcon,
+    path: '/search',
     markerColor: null,
     tag: null,
   },

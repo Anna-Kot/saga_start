@@ -13,6 +13,7 @@ import {
   UPDATE_CURRENT_POST_SUCCESS,
   CREATE_CURRENT_POST_START,
   CREATE_CURRENT_POST_SUCCESS,
+  SET_FILTER_SEARCH_POST,
 } from './types';
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
   countOfList: 0,
   readListPosts: [],
   filterPosts: [],
+  filterSearchPost: [],
   filterTitle: 'Classic',
   loadingUpdate: false,
 };
@@ -106,6 +108,14 @@ export default function postsReducer(state = initialState, action) {
         //   console.log('match', match);
         //   if (match) return post;
         // }),
+      };
+    }
+
+    case SET_FILTER_SEARCH_POST: {
+      console.log(action.payload);
+      return {
+        ...state,
+        filterSearchPost: state.posts.filter(post => post.title.includes(action.payload.toLowerCase())),
       };
     }
 

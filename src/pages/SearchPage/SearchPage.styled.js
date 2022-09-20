@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { LIGHT_BLUE } from '../../styles/Globals.styled';
 
 export const MainWrraper = styled.div`
   position: relative;
@@ -7,6 +8,17 @@ export const MainWrraper = styled.div`
   background-color: #ffffff;
   padding: 70px 0 0 230px;
 `;
+
+export const InputSearch = styled.input`
+  width: 900px;
+  height: 20px;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid ${LIGHT_BLUE};
+  font: 400 20px/25px 'Montserrat';
+  letter-spacing: 0.2px;
+`;
+
 export const PostsColumn = styled.div`
   width: 930px;
   height: 100vh;
@@ -19,6 +31,7 @@ export const PostsColumn = styled.div`
     display: none;
   }
 `;
+
 export const LoadingBlock = styled.div`
   position: absolute;
   width: 70%;
@@ -34,13 +47,4 @@ export const LoadingText = styled.h1`
   position: absolute;
   left: 43%;
   margin-top: 83px;
-`;
-
-export const TestCreate = styled.div`
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  background: red;
-  top: 30px;
-  left: 0;
 `;
