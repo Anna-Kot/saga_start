@@ -9,14 +9,7 @@ export const MainWrraper = styled.div`
   padding: 70px 0 0 230px;
 `;
 
-export const InputBlock = styled.div`
-  position: relative;
-  width: 900px;
-  height: 20px;
-`;
 export const InputSearch = styled.input`
-  padding: 0;
-  margin: 0;
   width: 900px;
   height: 20px;
   border: none;
@@ -24,14 +17,6 @@ export const InputSearch = styled.input`
   border-bottom: 2px solid ${LIGHT_BLUE};
   font: 400 20px/25px 'Montserrat';
   letter-spacing: 0.2px;
-`;
-export const LoadingImg = styled.img`
-  position: absolute;
-  width: 20px;
-  height: auto;
-  right: 3px;
-  top: -3px;
-  z-index: 3;
 `;
 
 export const PostsColumn = styled.div`
@@ -45,4 +30,21 @@ export const PostsColumn = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+`;
+
+export const LoadingBlock = styled.div`
+  position: absolute;
+  width: 70%;
+  left: 0px;
+  top: 0px;
+  height: 100%;
+  text-align: center;
+  background-color: white;
+  z-index: 3;
+  padding-top: 120px;
+`;
+export const LoadingText = styled.h1`
+  position: absolute;
+  left: 43%;
+  margin-top: 83px;
 `;

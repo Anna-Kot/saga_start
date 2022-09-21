@@ -14,6 +14,8 @@ import {
   CREATE_CURRENT_POST_START,
   CREATE_CURRENT_POST_SUCCESS,
   SET_FILTER_SEARCH_POST,
+  LOAD_SEARCH_POST_START,
+  SET_SEARCH_POST_SUCCESS,
 } from './types';
 
 export const loadPosts = payload => ({
@@ -58,6 +60,14 @@ export const deleteReadListPost = payload => ({
 
 export const setFilterSearchPosts = payload => ({
   type: SET_FILTER_SEARCH_POST,
+  payload,
+});
+export const loadSearchPostsStart = payload => ({
+  type: LOAD_SEARCH_POST_START,
+  payload,
+});
+export const setSearchPostsSuccess = payload => ({
+  type: SET_SEARCH_POST_SUCCESS,
   payload,
 });
 

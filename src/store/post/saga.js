@@ -6,6 +6,7 @@ import {
   removeSinglePostSuccess,
   updateCurrentPostSuccess,
   createCurrentPostSuccess,
+  setSearchPostsSuccess,
 } from './actions';
 import {
   LOAD_POSTS,
@@ -13,12 +14,14 @@ import {
   REMOVE_POST_START,
   UPDATE_CURRENT_POST_START,
   CREATE_CURRENT_POST_START,
+  LOAD_SEARCH_POST_START,
 } from './types';
 import { getPostsRequest } from '../../services/post/postServices';
 import { getSinglePostRequest } from '../../services/post/postServices';
 import { deleteSinglePostRequest } from '../../services/post/postServices';
 import { updateSinglePostRequest } from '../../services/post/postServices';
 import { createSinglePostRequest } from '../../services/post/postServices';
+import { getFilterPostsRequest } from '../../services/post/postServices';
 
 function* loadAllPostsWorker() {
   try {
@@ -72,10 +75,22 @@ function* createCurrentPostWorker(action) {
     console.log(error);
   }
 }
+
+function* loadSearchPostsWorker(action) {
+  try {
+    yield delay(1000);
+    const { data } = yield call(getFilterPostsRequest, action.payload);
+    yield put(setSearchPostsSuccess(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const postSagas = [
   takeEvery(LOAD_POSTS, loadAllPostsWorker),
   takeEvery(LOAD_CURRENT_POST, loadCurrentPostWorker),
   takeEvery(REMOVE_POST_START, deleteCurrentPostWorker),
   takeEvery(UPDATE_CURRENT_POST_START, updateCurrentPostWorker),
   takeEvery(CREATE_CURRENT_POST_START, createCurrentPostWorker),
+  takeEvery(LOAD_SEARCH_POST_START, loadSearchPostsWorker),
 ];

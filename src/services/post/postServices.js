@@ -9,6 +9,8 @@ export const createSinglePostRequest = async body => axios.post(`/posts`, body);
 
 export const updateSinglePostRequest = async (id, body) => axios.put(`/posts/${id}`, body);
 
+export const getFilterPostsRequest = async (title, body) => axios.get(`/posts?title_like=${title}`, body);
+
 // add  /posts
 // update put /posts/id
 
