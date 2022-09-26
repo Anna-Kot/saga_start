@@ -10,6 +10,8 @@ import * as s from './styles/App.styled';
 import ReadList from './pages/ReadList/ReadList';
 import FilterPosts from './pages/FilterPosts/FilterPosts';
 import SearchPage from './pages/SearchPage/SearchPage';
+import AdvanceInfo from './pages/AdvanceInfo/AdvanceInfo';
+import Disbursment from './pages/Disbursment/Disbursment';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +31,9 @@ function App() {
         <Route path="/posts/:id" exact element={<CurrentPost />} />
         <Route path="/readlist" exact element={<ReadList />} />
         <Route path="/filter-posts" exact element={<FilterPosts />} />
+
+        <Route path="/advance-info" exact element={<AdvanceInfo />} />
+        <Route path="/disbursment" exact element={<Disbursment />} />
       </Routes>
     </s.BodyWrapper>
   );
