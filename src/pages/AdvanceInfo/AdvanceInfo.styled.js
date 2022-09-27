@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const Pr = styled.div`
-  background: lightblue;
-`;
-
 export const MainWrraper = styled.div`
   width: 535px;
   height: 296px;

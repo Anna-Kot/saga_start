@@ -38,32 +38,57 @@ const Disbursment = () => {
     },
   ];
 
+  const TOTAL_REMAINDER = [
+    {
+      title: 'Disbursed from Fox Chase',
+      persent: '',
+      amount: '$40,000',
+    },
+    {
+      title: 'Total Remaining',
+      persent: '',
+      amount: '$35,000',
+    },
+  ];
+
   return (
-    <s.Pr>
-      <s.MainWrraper>
-        <s.HeaderBlock>
-          {HEADER_TABLE.map(header => {
-            return <s.Header key={header}>{header}</s.Header>;
-          })}
-        </s.HeaderBlock>
-        {INFO_BLOCK.map(({ title, percent, amount, info }) => {
-          return (
-            <s.InfoBlock key={title}>
-              <s.Title>{title}</s.Title>
-              <s.PerCent>{percent}</s.PerCent>
-              <s.Amount>{amount}</s.Amount>
-              <s.Info>{info}</s.Info>
-            </s.InfoBlock>
-          );
+    <s.MainWrraper>
+      <s.HeaderBlock>
+        {HEADER_TABLE.map(header => {
+          return <s.Header key={header}>{header}</s.Header>;
         })}
-        <s.TotalBlock>
-          <s.Title className="title-bold">Total Net Fund</s.Title>
-          <s.PerCent></s.PerCent>
-          <s.Amount>$75,410</s.Amount>
-          <s.Info></s.Info>
-        </s.TotalBlock>
-      </s.MainWrraper>
-    </s.Pr>
+      </s.HeaderBlock>
+      {INFO_BLOCK.map(({ title, percent, amount, info }) => {
+        return (
+          <s.InfoBlock key={title}>
+            <s.Title>{title}</s.Title>
+            <s.PerCent>{percent}</s.PerCent>
+            <s.Amount>{amount}</s.Amount>
+            <s.Info>{info}</s.Info>
+          </s.InfoBlock>
+        );
+      })}
+      <s.TotalBlock>
+        <s.Title className="title-bold">Total Net Fund</s.Title>
+        <s.PerCent></s.PerCent>
+        <s.Amount>$75,410</s.Amount>
+        <s.Info></s.Info>
+      </s.TotalBlock>
+      {TOTAL_REMAINDER.map(({ title, percent, amount }) => {
+        return (
+          <s.TotalRemainder key={title}>
+            {title === 'Disbursed from Fox Chase' ? (
+              <s.Title className="underline">{title}</s.Title>
+            ) : (
+              <s.Title>{title}</s.Title>
+            )}
+            <s.PerCent>{percent}</s.PerCent>
+            <s.Amount>{amount}</s.Amount>
+            {title === 'Total Remaining' && <button>Add Disbursment</button>}
+          </s.TotalRemainder>
+        );
+      })}
+    </s.MainWrraper>
   );
 };
 
