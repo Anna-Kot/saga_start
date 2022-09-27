@@ -12,6 +12,7 @@ import FilterPosts from './pages/FilterPosts/FilterPosts';
 import SearchPage from './pages/SearchPage/SearchPage';
 import AdvanceInfo from './pages/AdvanceInfo/AdvanceInfo';
 import Disbursment from './pages/Disbursment/Disbursment';
+import Performance from './pages/PerformanceBlock/Performance';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
 
         <Route path="/advance-info" exact element={<AdvanceInfo />} />
         <Route path="/disbursment" exact element={<Disbursment />} />
+        <Route path="/performance" exact element={<Performance />} />
       </Routes>
     </s.BodyWrapper>
   );
