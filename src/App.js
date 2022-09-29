@@ -13,6 +13,7 @@ import SearchPage from './pages/SearchPage/SearchPage';
 import AdvanceInfo from './pages/AdvanceInfo/AdvanceInfo';
 import Disbursment from './pages/Disbursment/Disbursment';
 import Performance from './pages/PerformanceBlock/Performance';
+import PerformDisburAdvance from './pages/PerformDisburAdvance/PerformDisburAdvance';
 
 function App() {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ function App() {
         <Route path="/advance-info" exact element={<AdvanceInfo />} />
         <Route path="/disbursment" exact element={<Disbursment />} />
         <Route path="/performance" exact element={<Performance />} />
+        <Route path="/performdisburadvance" exact element={<PerformDisburAdvance />} />
       </Routes>
     </s.BodyWrapper>
   );

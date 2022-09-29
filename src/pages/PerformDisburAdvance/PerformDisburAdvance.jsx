@@ -1,8 +1,8 @@
 import React from 'react';
 
-import * as s from './Disbursment.styled';
+import * as s from './PerformDisburAdvance.styled';
 
-const Disbursment = () => {
+const PerformDisburAdvance = () => {
   const HEADER_TABLE = ['Transaction', '% of funding', 'Amount', 'Info'];
 
   const INFO_BLOCK = [
@@ -74,7 +74,8 @@ const Disbursment = () => {
         <s.Amount>$75,410</s.Amount>
         <s.Info></s.Info>
       </s.TotalBlock>
-      {/* {TOTAL_REMAINDER.map(({ title, percent, amount }) => {
+
+      {TOTAL_REMAINDER.map(({ title, percent, amount }) => {
         return (
           <s.TotalRemainder key={title}>
             {title === 'Disbursed from Fox Chase' ? (
@@ -91,9 +92,9 @@ const Disbursment = () => {
             {title === 'Total Remaining' && <button>Add Disbursment</button>}
           </s.TotalRemainder>
         );
-      })} */}
+      })}
     </s.MainWrraper>
   );
 };
 
-export default Disbursment;
+export default PerformDisburAdvance;

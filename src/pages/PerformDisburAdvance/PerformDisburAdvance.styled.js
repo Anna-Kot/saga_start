@@ -2,26 +2,26 @@ import styled from 'styled-components';
 
 export const MainWrraper = styled.div`
   width: 1016px;
-  height: 296px;
-  /* height: 333px; */
+  /* height: 296px; */
+  height: 333px;
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #000000;
   border-top: none;
   border-radius: 0px;
-  padding: 17px 34px 36px 29px;
-  /* padding: 17px 34px 19px 29px; */
+  /* padding: 17px 34px 28px 29px; */
+  padding: 17px 34px 10px 29px;
+  display: grid;
   margin: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 
 export const HeaderBlock = styled.div`
-  display: grid;
-  grid-template-columns: 248px 167px 143px auto;
   border-bottom: 1px solid #cfcfcf;
-  padding-bottom: 6px;
+  display: grid;
+  grid-template-columns: 1.6fr 1.05fr 0.9fr 2.65fr;
+  margin-bottom: 6px;
+  box-sizing: border-box;
+  gap: 10px;
 `;
 
 export const Header = styled.div`
@@ -30,12 +30,15 @@ export const Header = styled.div`
 `;
 
 export const InfoBlock = styled.div`
-  display: grid;
   border-bottom: 1px solid #cfcfcf;
   font: 400 18px/21px Roboto;
-  grid-template-columns: 248px 167px 143px auto;
-  padding-bottom: 6px;
   box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 1.6fr 1.05fr 0.9fr 2.65fr;
+  margin-bottom: 6px;
+  box-sizing: border-box;
+  gap: 10px;
 `;
 
 export const Title = styled.div`
@@ -54,29 +57,37 @@ export const Info = styled.div`
 `;
 
 export const TotalBlock = styled.div`
-  display: grid;
   font: 400 18px/21px Roboto;
-  grid-template-columns: 248px 167px 143px auto;
-  /* border-bottom: 1px solid #cfcfcf; */
+
+  display: grid;
+  grid-template-columns: 1.6fr 1.05fr 0.9fr 2.65fr;
+  margin-bottom: 6px;
   box-sizing: border-box;
-  padding-bottom: 6px;
-  /* for small table */
-  padding-top: 6px;
-  /* // */
+  gap: 10px;
+
+  /* margin-top: 7px; */
+  border-bottom: 1px solid #cfcfcf;
 
   .title-bold {
     font: 700 18px/21px Roboto;
   }
 `;
 export const TotalRemainder = styled.div`
-  display: grid;
   font: 400 18px/21px Roboto;
-  grid-template-columns: 248px 167px 143px;
   position: relative;
+  display: grid;
+  grid-template-columns: 1.6fr 1.05fr 0.9fr 2.65fr;
+  box-sizing: border-box;
+  gap: 10px;
+  margin-top: 5px;
 
+  div:nth-child(2) {
+    margin-top: 0px;
+  }
   .underline {
     text-decoration: underline;
   }
+
   button {
     left: 556px;
     box-sizing: border-box;
