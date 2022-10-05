@@ -27,6 +27,17 @@ const PaymentPlans = () => {
       funderAccount: 'Fifth Third - Fox',
       paymentsNSF: '0/0',
     },
+    {
+      status: 'Pending',
+      startDate: '03/02/2022',
+      endDate: 'Open',
+      paymentsN: 'Open',
+      frequency: 'Daily',
+      paymentAmount: '$1000.00',
+      account: 'Bank of America - 8454',
+      funderAccount: 'Fifth Third - Fox',
+      paymentsNSF: '0/0',
+    },
   ];
 
   return (
@@ -39,7 +50,7 @@ const PaymentPlans = () => {
       {INFO_BLOCK.map(
         ({ status, startDate, endDate, paymentsN, frequency, paymentAmount, account, funderAccount, paymentsNSF }) => {
           return (
-            <s.InfoBlock key={funderAccount}>
+            <s.InfoBlock key={funderAccount} className="last-line">
               <s.Info>{status}</s.Info>
               <s.Info>{startDate}</s.Info>
               <s.Info>{endDate}</s.Info>

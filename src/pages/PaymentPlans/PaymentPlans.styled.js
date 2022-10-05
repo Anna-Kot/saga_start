@@ -2,15 +2,16 @@ import styled from 'styled-components';
 
 export const MainWrraper = styled.div`
   width: 1575px;
-  height: 109px;
+  min-height: 109px;
   /* height: auto; */
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #000000;
   border-top: none;
   border-radius: 0px;
-  padding: 20px 20px 0px 27px;
-  display: grid;
+  padding: 20px 20px 6px 27px;
+  display: flex;
+  flex-direction: column;
   margin: 30px;
 `;
 
@@ -38,8 +39,14 @@ export const InfoBlock = styled.div`
   grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr;
   gap: 10px;
   height: 35px;
-  padding-top: 3px;
+  margin-top: 10px;
   position: relative;
+  border-bottom: 1px solid #cfcfcf;
+  margin-bottom: 3px;
+
+  &.last-line:last-child {
+    border-bottom: none;
+  }
 
   button {
     right: 0px;
