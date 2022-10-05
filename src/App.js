@@ -15,6 +15,7 @@ import Disbursment from './pages/Disbursment/Disbursment';
 import Performance from './pages/PerformanceBlock/Performance';
 import PerformDisburAdvance from './pages/PerformDisburAdvance/PerformDisburAdvance';
 import PaymentPlans from './pages/PaymentPlans/PaymentPlans';
+import Splits from './pages/Splits/Splits';
 
 function App() {
   const dispatch = useDispatch();
@@ -40,6 +41,7 @@ function App() {
         <Route path="/performance" exact element={<Performance />} />
         <Route path="/performdisburadvance" exact element={<PerformDisburAdvance />} />
         <Route path="/paymentplans" exact element={<PaymentPlans />} />
+        <Route path="/splits" exact element={<Splits />} />
       </Routes>
     </s.BodyWrapper>
   );
