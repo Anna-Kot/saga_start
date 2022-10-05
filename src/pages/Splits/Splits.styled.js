@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
 export const MainWrraper = styled.div`
-  width: 1575px;
-  min-height: 109px;
+  width: 1016px;
+  min-height: 296px;
   /* height: auto; */
   box-sizing: border-box;
   background: #ffffff;
   border: 1px solid #000000;
   border-top: none;
   border-radius: 0px;
-  padding: 20px 20px 6px 27px;
+  padding: 17px 34px 0px 29px;
   display: flex;
   flex-direction: column;
   margin: 30px;
@@ -18,7 +18,7 @@ export const MainWrraper = styled.div`
 export const HeaderBlock = styled.div`
   border-bottom: 1px solid #cfcfcf;
   display: grid;
-  grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr;
+  grid-template-columns: 1.5fr 1fr 1.55fr 1.11fr 3.19fr;
   margin-bottom: 6px;
   box-sizing: border-box;
   gap: 10px;
@@ -36,13 +36,13 @@ export const InfoBlock = styled.div`
   box-sizing: border-box;
 
   display: grid;
-  grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr;
+  grid-template-columns: 1.5fr 1fr 1.55fr 1.11fr 3.19fr;
   gap: 10px;
-  height: 35px;
-  margin-top: 10px;
+  height: 31px;
+  margin-top: 6px;
   position: relative;
   border-bottom: 1px solid #cfcfcf;
-  margin-bottom: 3px;
+  margin-bottom: 6px;
 
   &.last-line:last-child {
     border-bottom: none;
@@ -64,4 +64,24 @@ export const InfoBlock = styled.div`
 `;
 export const Info = styled.div`
   color: #000000;
+`;
+export const EditBtn = styled.div`
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background: #000000;
+  right: 25px;
+  box-sizing: border-box;
+  top: 0px;
+  border-radius: 50%;
+`;
+export const CloseBtn = styled.div`
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background: #ff0000;
+  right: 0px;
+  box-sizing: border-box;
+  top: 0px;
+  border-radius: 50%;
 `;

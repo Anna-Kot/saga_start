@@ -3,40 +3,29 @@ import React from 'react';
 import * as s from './Splits.styled';
 
 const Splits = () => {
-  const HEADER_TABLE = [
-    'Status',
-    'Start Date',
-    'End Date',
-    'No. Payments',
-    'Frequency',
-    'Payment Amount',
-    'Account',
-    'Funder Account',
-    'Payments/NSF',
-  ];
+  const HEADER_TABLE = ['Split Source', 'Amount', 'Split', 'Split Amount', 'Recipient'];
 
   const INFO_BLOCK = [
     {
-      status: 'Pending',
-      startDate: '03/02/2022',
-      endDate: 'Open',
-      paymentsN: 'Open',
-      frequency: 'Daily',
-      paymentAmount: '$1000.00',
-      account: 'Bank of America - 8454',
-      funderAccount: 'Fifth Third - Fox',
-      paymentsNSF: '0/0',
+      source: 'Orgination Fee',
+      amount: '$5000',
+      split: '50%',
+      splitAmount: '$2,500',
+      recipient: 'JP High Risk',
     },
     {
-      status: 'Pending',
-      startDate: '03/02/2022',
-      endDate: 'Open',
-      paymentsN: 'Open',
-      frequency: 'Daily',
-      paymentAmount: '$1000.00',
-      account: 'Bank of America - 8454',
-      funderAccount: 'Fifth Third - Fox',
-      paymentsNSF: '0/0',
+      source: 'ISO Commission',
+      amount: '$8,000 (8%)',
+      split: '1 pt',
+      splitAmount: '$1,000',
+      recipient: 'Fox Capital',
+    },
+    {
+      source: 'PSF',
+      amount: '$2,500',
+      split: '',
+      splitAmount: '$2,000',
+      recipient: 'Blue Brick Funders',
     },
   ];
 
@@ -47,24 +36,19 @@ const Splits = () => {
           return <s.Header key={header}>{header}</s.Header>;
         })}
       </s.HeaderBlock>
-      {INFO_BLOCK.map(
-        ({ status, startDate, endDate, paymentsN, frequency, paymentAmount, account, funderAccount, paymentsNSF }) => {
-          return (
-            <s.InfoBlock key={funderAccount} className="last-line">
-              <s.Info>{status}</s.Info>
-              <s.Info>{startDate}</s.Info>
-              <s.Info>{endDate}</s.Info>
-              <s.Info>{paymentsN}</s.Info>
-              <s.Info>{frequency}</s.Info>
-              <s.Info>{paymentAmount}</s.Info>
-              <s.Info>{account}</s.Info>
-              <s.Info>{funderAccount}</s.Info>
-              <s.Info>{paymentsNSF}</s.Info>
-              <button>Update Plan</button>
-            </s.InfoBlock>
-          );
-        },
-      )}
+      {INFO_BLOCK.map(({ source, amount, split, splitAmount, recipient }) => {
+        return (
+          <s.InfoBlock key={source} className="last-line">
+            <s.Info>{source}</s.Info>
+            <s.Info>{amount}</s.Info>
+            <s.Info>{split}</s.Info>
+            <s.Info>{splitAmount}</s.Info>
+            <s.Info>{recipient}</s.Info>
+            <s.EditBtn></s.EditBtn>
+            <s.CloseBtn></s.CloseBtn>
+          </s.InfoBlock>
+        );
+      })}
     </s.MainWrraper>
   );
 };
