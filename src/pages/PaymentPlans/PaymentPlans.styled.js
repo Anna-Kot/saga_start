@@ -18,7 +18,8 @@ export const MainWrraper = styled.div`
 export const HeaderBlock = styled.div`
   border-bottom: 1px solid #cfcfcf;
   display: grid;
-  grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr;
+  /* grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr; */
+  grid-template-columns: 1.58fr 1.3fr 1fr 1.47fr 1.25fr 1.78fr 2.26fr 2.87fr 2.73fr;
   margin-bottom: 6px;
   box-sizing: border-box;
   gap: 10px;
@@ -36,7 +37,8 @@ export const InfoBlock = styled.div`
   box-sizing: border-box;
 
   display: grid;
-  grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr;
+  /* grid-template-columns: 0.78fr 1.18fr 0.95fr 1.3fr 1fr 1.56fr 1.83fr 2.33fr 2.19fr; */
+  grid-template-columns: 1.58fr 1.3fr 1fr 1.47fr 1.25fr 1.78fr 2.26fr 2.87fr 2.73fr;
   gap: 10px;
   height: 35px;
   margin-top: 10px;
