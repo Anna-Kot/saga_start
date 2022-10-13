@@ -16,6 +16,10 @@ import {
   SET_FILTER_SEARCH_POST,
   LOAD_SEARCH_POST_START,
   SET_SEARCH_POST_SUCCESS,
+  SET_FILTER_SEARCH_POST_SELECT,
+  LOAD_SEARCH_POST_START_SELECT,
+  SET_SEARCH_POST_SUCCESS_SELECT,
+  CLEAN_SEARCH_POST_SELECT,
 } from './types';
 
 const initialState = {
@@ -29,6 +33,8 @@ const initialState = {
   filterPosts: [],
   filterSearchPost: [],
   loadingSearchPost: false,
+  filterSearchPostSelect: [],
+  loadingSearchPostSelect: false,
   filterTitle: 'Classic',
   loadingUpdate: false,
 };
@@ -135,6 +141,36 @@ export default function postsReducer(state = initialState, action) {
         ...state,
         loadingSearchPost: false,
         filterSearchPost: action.payload,
+      };
+    }
+
+    case SET_FILTER_SEARCH_POST_SELECT: {
+      console.log(action.payload);
+      return {
+        ...state,
+        filterSearchPostSelect: state.posts.filter(post => post.title),
+      };
+    }
+
+    case LOAD_SEARCH_POST_START_SELECT: {
+      console.log(action.payload);
+      return {
+        ...state,
+        loadingSearchPostSelect: true,
+      };
+    }
+    case SET_SEARCH_POST_SUCCESS_SELECT: {
+      console.log(action.payload);
+      return {
+        ...state,
+        loadingSearchPostSelect: false,
+        filterSearchPostSelect: action.payload,
+      };
+    }
+    case CLEAN_SEARCH_POST_SELECT: {
+      return {
+        ...state,
+        filterSearchPostSelect: [],
       };
     }
 

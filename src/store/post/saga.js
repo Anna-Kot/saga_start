@@ -7,6 +7,7 @@ import {
   updateCurrentPostSuccess,
   createCurrentPostSuccess,
   setSearchPostsSuccess,
+  setSearchPostsSuccessSelect,
 } from './actions';
 import {
   LOAD_POSTS,
@@ -15,6 +16,7 @@ import {
   UPDATE_CURRENT_POST_START,
   CREATE_CURRENT_POST_START,
   LOAD_SEARCH_POST_START,
+  LOAD_SEARCH_POST_START_SELECT,
 } from './types';
 import { getPostsRequest } from '../../services/post/postServices';
 import { getSinglePostRequest } from '../../services/post/postServices';
@@ -86,6 +88,16 @@ function* loadSearchPostsWorker(action) {
   }
 }
 
+function* loadSearchPostsSelectWorker(action) {
+  try {
+    yield delay(1000);
+    const { data } = yield call(getFilterPostsRequest, action.payload);
+    yield put(setSearchPostsSuccessSelect(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export const postSagas = [
   takeEvery(LOAD_POSTS, loadAllPostsWorker),
   takeEvery(LOAD_CURRENT_POST, loadCurrentPostWorker),
@@ -93,4 +105,5 @@ export const postSagas = [
   takeEvery(UPDATE_CURRENT_POST_START, updateCurrentPostWorker),
   takeEvery(CREATE_CURRENT_POST_START, createCurrentPostWorker),
   takeEvery(LOAD_SEARCH_POST_START, loadSearchPostsWorker),
+  takeEvery(LOAD_SEARCH_POST_START_SELECT, loadSearchPostsSelectWorker),
 ];

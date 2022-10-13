@@ -10,6 +10,7 @@ import * as s from './styles/App.styled';
 import ReadList from './pages/ReadList/ReadList';
 import FilterPosts from './pages/FilterPosts/FilterPosts';
 import SearchPage from './pages/SearchPage/SearchPage';
+import SearchPageReactSelect from './pages/SearchPageReactSelect/SearchPageReactSelect';
 import AdvanceInfo from './pages/AdvanceInfo/AdvanceInfo';
 import Disbursment from './pages/Disbursment/Disbursment';
 import Performance from './pages/PerformanceBlock/Performance';
@@ -32,6 +33,7 @@ function App() {
         <Route path="/" exact element={<Navigate to="/posts" />} />
         <Route path="/posts" exact element={<PostsPage />} />
         <Route path="/search" exact element={<SearchPage />} />
+        <Route path="/search-select" exact element={<SearchPageReactSelect />} />
         <Route path="/posts/:id" exact element={<CurrentPost />} />
         <Route path="/readlist" exact element={<ReadList />} />
         <Route path="/filter-posts" exact element={<FilterPosts />} />

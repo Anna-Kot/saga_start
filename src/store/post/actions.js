@@ -16,6 +16,10 @@ import {
   SET_FILTER_SEARCH_POST,
   LOAD_SEARCH_POST_START,
   SET_SEARCH_POST_SUCCESS,
+  SET_FILTER_SEARCH_POST_SELECT,
+  LOAD_SEARCH_POST_START_SELECT,
+  SET_SEARCH_POST_SUCCESS_SELECT,
+  CLEAN_SEARCH_POST_SELECT,
 } from './types';
 
 export const loadPosts = payload => ({
@@ -68,6 +72,23 @@ export const loadSearchPostsStart = payload => ({
 });
 export const setSearchPostsSuccess = payload => ({
   type: SET_SEARCH_POST_SUCCESS,
+  payload,
+});
+
+export const setFilterSearchPostsSelect = payload => ({
+  type: SET_FILTER_SEARCH_POST_SELECT,
+  payload,
+});
+export const loadSearchPostsStartSelect = payload => ({
+  type: LOAD_SEARCH_POST_START_SELECT,
+  payload,
+});
+export const setSearchPostsSuccessSelect = payload => ({
+  type: SET_SEARCH_POST_SUCCESS_SELECT,
+  payload,
+});
+export const clearSearchPostSelect = payload => ({
+  type: CLEAN_SEARCH_POST_SELECT,
   payload,
 });
 

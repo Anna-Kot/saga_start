@@ -36,6 +36,14 @@ const SIDEBAR_BUTTONS = [
     tag: null,
   },
   {
+    text: 'Search Posts React Select',
+    type: 'IconButton',
+    IconComponent: SearchIcon,
+    path: '/search-select',
+    markerColor: null,
+    tag: null,
+  },
+  {
     text: 'Classic',
     type: 'MarkerButton',
     IconComponent: null,
