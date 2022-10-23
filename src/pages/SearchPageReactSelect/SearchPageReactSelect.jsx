@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Select from 'react-select';
+import Select, { components } from 'react-select';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,7 +10,37 @@ import { postMapper } from '../../utils/mappers';
 
 import * as s from './SearchPageReactSelect.styled';
 
-const SearchPageReactSelect = () => {
+const customStyles = {
+  menu: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px dotted pink',
+    color: state.selectProps.menuColor,
+    padding: 20,
+  }),
+  control: (base, { selectProps: { padding } }) => ({
+    ...base,
+    boxShadow: 'none',
+    border: '2px solid red',
+    padding: `${padding ? padding : ''}`,
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
+  }),
+  singleValue: provided => ({
+    ...provided,
+    color: '#0f7e21',
+  }),
+};
+const DropdownIndicator = props => {
+  return components.DropdownIndicator && <components.DropdownIndicator {...props}></components.DropdownIndicator>;
+};
+
+const DropdownIndicatorPlaceholder = () => {
+  return null;
+};
+
+const SearchPageReactSelect = ({ hideArrow = false }) => {
   const filterSearchPostSelect = useSelector(state => state.Posts.filterSearchPostSelect);
   const posts = useSelector(state => state.Posts.posts);
   console.log(posts);
@@ -41,7 +71,16 @@ const SearchPageReactSelect = () => {
     <>
       <SideBar />
       <s.MainWrraper>
-        <Select options={postOptions} className="select" onChange={processSearch} />
+        <Select
+          menuColor="purple"
+          options={postOptions}
+          styles={customStyles}
+          components={{
+            DropdownIndicator: hideArrow ? DropdownIndicatorPlaceholder : DropdownIndicator,
+          }}
+          className="select"
+          onChange={processSearch}
+        />
         <s.PostsColumn>
           {filterSearchPostSelect.map(post => (
             <PostInfo key={post.id} id={post.id} post={post} handleOpenPostById={handleOpenPostById} />

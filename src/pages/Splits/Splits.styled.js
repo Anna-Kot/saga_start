@@ -61,6 +61,10 @@ export const InfoBlock = styled.div`
     color: #ffffff;
     position: absolute;
   }
+
+  .select-active:hover {
+    border: 1px solid red;
+  }
 `;
 export const Info = styled.div`
   color: #000000;

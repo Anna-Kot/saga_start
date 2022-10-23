@@ -1,7 +1,41 @@
 import React from 'react';
+import Select, { components } from 'react-select';
+import { ReactComponent as ArrowDropdown } from '../../assets/svg/ArrowDropdown.svg';
 
 import * as s from './Splits.styled';
-
+const customStyles = {
+  menu: (provided, state) => ({
+    ...provided,
+    maxWidth: '158px',
+  }),
+  control: base => ({
+    ...base,
+    font: '400 16px/18px Roboto',
+    boxShadow: 'none',
+    borderColor: 'hsl(0, 0%, 80%)',
+    marginTop: '5px',
+    maxWidth: '158px',
+  }),
+  valueContainer: provided => ({
+    ...provided,
+    padding: '5px 5px 2px 5px',
+  }),
+  indicatorSeparator: provided => ({
+    ...provided,
+    width: '0px',
+  }),
+  dropdownIndicator: (provided, state) => ({
+    ...provided,
+    transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
+  }),
+};
+const DropdownIndicator = props => {
+  return (
+    <components.DropdownIndicator {...props}>
+      <ArrowDropdown label="ArrowDropdown" />
+    </components.DropdownIndicator>
+  );
+};
 const Splits = () => {
   const HEADER_TABLE = ['Split Source', 'Amount', 'Split', 'Split Amount', 'Recipient'];
 
@@ -29,6 +63,12 @@ const Splits = () => {
     },
   ];
 
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+  ];
+
   return (
     <s.MainWrraper>
       <s.HeaderBlock>
@@ -49,6 +89,13 @@ const Splits = () => {
           </s.InfoBlock>
         );
       })}
+      <Select
+        styles={customStyles}
+        options={options}
+        components={{ DropdownIndicator }}
+        placeholder="Select Source"
+        className="select-active"
+      />
     </s.MainWrraper>
   );
 };
