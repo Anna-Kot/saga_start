@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MainWrraper = styled.div`
   width: 535px;
@@ -9,6 +9,7 @@ export const MainWrraper = styled.div`
   border-top: none;
   border-radius: 0px;
   /* padding: 26px 0px 17px 29px; */
+  /* padding: 26px 16px 17px 29px; */
   padding: 26px 16px 17px 29px;
   margin: 50px;
   display: flex;
