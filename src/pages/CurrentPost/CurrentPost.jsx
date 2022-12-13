@@ -1,50 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux/es/exports';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux/es/exports";
 
-import SideBar from '../../containers/SideBar';
-import Title from '../../components/Title';
-import EditingButtonContainer from '../../components/EditingButtonContainer/EditingButtonContainer';
-import TagsContainer from '../../components/TagsContainer/TagsContainer';
-import { loadCurrentPost, clearCurrentPost, removeSinglePostStart } from '../../store/post/actions';
-import loadingImg from '../../assets/img/loading.gif';
-import PopupDeletePost from '../../components/PopupDeletePost';
-import PopupUpdateCreatePost from '../../components/PopupUpdateCreatePost';
+import SideBar from "../../containers/SideBar";
+import Title from "../../components/Title";
+import EditingButtonContainer from "../../components/EditingButtonContainer/EditingButtonContainer";
+import TagsContainer from "../../components/TagsContainer/TagsContainer";
+import {
+  loadCurrentPost,
+  clearCurrentPost,
+  removeSinglePostStart,
+} from "../../store/post/actions";
+import loadingImg from "../../assets/img/loading.gif";
+import PopupDeletePost from "../../components/PopupDeletePost";
+import PopupUpdateCreatePost from "../../components/PopupUpdateCreatePost";
 
-import * as s from './CurrentPost.styled';
+import * as s from "./CurrentPost.styled";
 
-import { ReactComponent as ArrowBack } from '../../assets/svg/ArrowBack.svg';
+import { ReactComponent as ArrowBack } from "../../assets/svg/ArrowBack.svg";
 
-const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
+const CurrentPost = ({ bgBtnColor = "#1C67F0" }) => {
   const dispatch = useDispatch();
-  const posts = useSelector(state => state.Posts.posts);
-  const post = useSelector(state => state.Posts.openedPost);
-  const loading = useSelector(state => state.Posts.loadingCurrentPost);
+  const posts = useSelector((state) => state.Posts.posts);
+  const post = useSelector((state) => state.Posts.openedPost);
+  const loading = useSelector((state) => state.Posts.loadingCurrentPost);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
 
-  const handleLoadSinglePost = id => {
+  const handleLoadSinglePost = (id) => {
     dispatch(loadCurrentPost({ id }));
   };
   const handleCloseCurrentPost = () => {
-    navigate('/posts');
+    navigate("/posts");
   };
-  const handleDeleteFromPosts = event => {
+  const handleDeleteFromPosts = (event) => {
     event.stopPropagation();
 
     dispatch(removeSinglePostStart(post));
-    navigate('/posts');
+    navigate("/posts");
   };
 
   const [showDeletePopup, setShowDeletePopup] = useState(false);
-  const handleShowDeletePopup = event => {
+  const handleShowDeletePopup = (event) => {
     event.stopPropagation();
     setShowDeletePopup(!showDeletePopup);
   };
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
-  const handleShowUpdatePopup = event => {
+  const handleShowUpdatePopup = (event) => {
     event.stopPropagation();
     setShowUpdatePopup(!showUpdatePopup);
     console.log(post);
@@ -59,6 +63,23 @@ const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
 
   return (
     <>
+      {showDeletePopup && (
+        <PopupDeletePost
+          setShowDeletePopup={setShowDeletePopup}
+          showDeletePopup={showDeletePopup}
+          handleDeleteFromPosts={handleDeleteFromPosts}
+          id={post?.id}
+        ></PopupDeletePost>
+      )}
+
+      {showUpdatePopup && (
+        <PopupUpdateCreatePost
+          setShowUpdatePopup={setShowUpdatePopup}
+          showUpdatePopup={showUpdatePopup}
+          bgBtnColor={bgBtnColor}
+          post={post}
+        ></PopupUpdateCreatePost>
+      )}
       <SideBar />
       <s.MainWrraper>
         {loading && (
@@ -79,23 +100,6 @@ const CurrentPost = ({ bgBtnColor = '#1C67F0' }) => {
         </s.ButtonWrraper>
         <p>{post?.body}</p>
       </s.MainWrraper>
-      {showDeletePopup && (
-        <PopupDeletePost
-          setShowDeletePopup={setShowDeletePopup}
-          showDeletePopup={showDeletePopup}
-          handleDeleteFromPosts={handleDeleteFromPosts}
-          id={post?.id}
-        ></PopupDeletePost>
-      )}
-
-      {showUpdatePopup && (
-        <PopupUpdateCreatePost
-          setShowUpdatePopup={setShowUpdatePopup}
-          showUpdatePopup={showUpdatePopup}
-          bgBtnColor={bgBtnColor}
-          post={post}
-        ></PopupUpdateCreatePost>
-      )}
     </>
   );
 };

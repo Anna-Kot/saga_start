@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import BackdropPopup from '../BackdropPopup';
-import PopupButtonsBlock from '../PopupButtonsBlock';
+import BackdropPopup from "../BackdropPopup";
+import PopupButtonsBlock from "../PopupButtonsBlock";
 
-import { updateCurrentPostStart, createCurrentPostStart } from '../../store/post/actions';
+import {
+  updateCurrentPostStart,
+  createCurrentPostStart,
+} from "../../store/post/actions";
 
-import * as s from '../PopupUpdateCreatePost/PopupUpdateCreatePost.styled';
+import * as s from "../PopupUpdateCreatePost/PopupUpdateCreatePost.styled";
 
 const PopupUpdateCreatePost = ({
   setShowUpdatePopup,
@@ -16,14 +19,23 @@ const PopupUpdateCreatePost = ({
   bgBtnColor,
   post,
 }) => {
-  const posts = useSelector(state => state.Posts.posts);
+  const posts = useSelector((state) => state.Posts.posts);
   const dispatch = useDispatch();
-  const [currentTitle, setCurrentTitle] = useState(showUpdatePopup ? post.title : '');
-  const [currentBody, setCurrentBody] = useState(showUpdatePopup ? post.body : '');
+  const [currentTitle, setCurrentTitle] = useState(
+    showUpdatePopup ? post.title : ""
+  );
+  const [currentBody, setCurrentBody] = useState(
+    showUpdatePopup ? post.body : ""
+  );
   const [isValidated, setValidated] = useState(false);
 
   useEffect(() => {
-    if (currentTitle.length <= 4 || currentTitle.length > 72 || currentBody.length <= 8 || currentBody.length > 510) {
+    if (
+      currentTitle.length <= 4 ||
+      currentTitle.length > 72 ||
+      currentBody.length <= 8 ||
+      currentBody.length > 510
+    ) {
       setValidated(false);
     } else {
       setValidated(true);
@@ -45,7 +57,7 @@ const PopupUpdateCreatePost = ({
       title: currentTitle,
       body: currentBody,
       userId: posts.length + 1,
-      tags: ['classic', 'fiction', 'english'],
+      tags: ["classic", "fiction", "english"],
       reactions: 2,
     };
     console.log(newData);
@@ -60,24 +72,24 @@ const PopupUpdateCreatePost = ({
     }
   };
 
-  const hadleOnChangeTitle = event => {
+  const hadleOnChangeTitle = (event) => {
     const elem = event.target;
     setCurrentTitle(elem.value);
 
     if (elem.value.length <= 4 || elem.value.length > 72) {
-      elem.style.borderColor = '#E00000';
+      elem.style.borderColor = "#E00000";
     } else {
-      elem.style.borderColor = '#e7e8e9';
+      elem.style.borderColor = "#e7e8e9";
     }
   };
-  const hadleOnChangeBody = event => {
+  const hadleOnChangeBody = (event) => {
     const elemBody = event.target;
     setCurrentBody(elemBody.value);
 
     if (elemBody.value.length <= 8 || elemBody.value.length > 510) {
-      elemBody.style.borderColor = '#E00000';
+      elemBody.style.borderColor = "#E00000";
     } else {
-      elemBody.style.borderColor = '#e7e8e9';
+      elemBody.style.borderColor = "#e7e8e9";
     }
   };
 
@@ -98,10 +110,11 @@ const PopupUpdateCreatePost = ({
           />
           {currentTitle.length <= 4 || currentTitle.length > 72 ? (
             <s.ErrorMessageTitleBody>
-              Please enter at least 4 characters and not more than 64 characters.
+              Please enter at least 4 characters and not more than 64
+              characters.
             </s.ErrorMessageTitleBody>
           ) : (
-            ''
+            ""
           )}
           <s.NumberOfCharacters>({currentTitle.length})</s.NumberOfCharacters>
         </s.TitleBlock>
@@ -116,12 +129,15 @@ const PopupUpdateCreatePost = ({
           />
           {currentBody.length <= 8 || currentBody.length > 510 ? (
             <s.ErrorMessageTitleBody className="body-error">
-              The length of the post cannot be less than 8 and more than 390 characters.
+              The length of the post cannot be less than 8 and more than 390
+              characters.
             </s.ErrorMessageTitleBody>
           ) : (
-            ''
+            ""
           )}
-          <s.NumberOfCharacters className="body-error">({currentBody.length})</s.NumberOfCharacters>
+          <s.NumberOfCharacters className="body-error">
+            ({currentBody.length})
+          </s.NumberOfCharacters>
         </s.DescriptionBlock>
         <PopupButtonsBlock
           setShowUpdatePopup={setShowUpdatePopup}
@@ -132,7 +148,6 @@ const PopupUpdateCreatePost = ({
           bgBtnColor={bgBtnColor}
           onClickHandler={handleUpdateOrCreatePopup}
           isValidated={isValidated}
-          //   handleUpdatePost={handleUpdatePost}
         ></PopupButtonsBlock>
       </s.PopupBlock>
     </BackdropPopup>
