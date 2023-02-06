@@ -20,7 +20,7 @@ import {
   LOAD_SEARCH_POST_START_SELECT,
   SET_SEARCH_POST_SUCCESS_SELECT,
   CLEAN_SEARCH_POST_SELECT,
-} from './types';
+} from "./types";
 
 const initialState = {
   posts: [],
@@ -35,7 +35,7 @@ const initialState = {
   loadingSearchPost: false,
   filterSearchPostSelect: [],
   loadingSearchPostSelect: false,
-  filterTitle: 'Classic',
+  filterTitle: "Classic",
   loadingUpdate: false,
 };
 
@@ -66,7 +66,7 @@ export default function postsReducer(state = initialState, action) {
     case REMOVE_POST_SUCCESS: {
       return {
         ...state,
-        posts: state.posts.filter(post => post.id !== action.payload),
+        posts: state.posts.filter((post) => post.id !== action.payload),
         loadingRemove: false,
       };
     }
@@ -98,7 +98,9 @@ export default function postsReducer(state = initialState, action) {
       };
     }
     case DELETE_READ_LIST_POST: {
-      const readListPosts = state.readListPosts.filter(post => post.id !== action.payload);
+      const readListPosts = state.readListPosts.filter(
+        (post) => post.id !== action.payload
+      );
       return {
         ...state,
         readListPosts,
@@ -110,7 +112,9 @@ export default function postsReducer(state = initialState, action) {
       return {
         ...state,
         filterTitle: action.payload,
-        filterPosts: state.posts.filter(post => post.tags.includes(action.payload.toLowerCase())),
+        filterPosts: state.posts.filter((post) =>
+          post.tags.includes(action.payload.toLowerCase())
+        ),
         // filterPosts: state.posts.filter(post => {
         //   const tags = post.tags;
         //   let match = tags.some(tag => tag === action.payload.toLowerCase());
@@ -124,7 +128,9 @@ export default function postsReducer(state = initialState, action) {
       console.log(action.payload);
       return {
         ...state,
-        filterSearchPost: state.posts.filter(post => post.title.includes(action.payload.toLowerCase())),
+        filterSearchPost: state.posts.filter((post) =>
+          post.title.includes(action.payload.toLowerCase())
+        ),
       };
     }
 
@@ -148,7 +154,7 @@ export default function postsReducer(state = initialState, action) {
       console.log(action.payload);
       return {
         ...state,
-        filterSearchPostSelect: state.posts.filter(post => post.title),
+        filterSearchPostSelect: state.posts.filter((post) => post.title),
       };
     }
 
@@ -184,7 +190,7 @@ export default function postsReducer(state = initialState, action) {
     case UPDATE_CURRENT_POST_SUCCESS: {
       return {
         ...state,
-        posts: state.posts.map(post => {
+        posts: state.posts.map((post) => {
           if (post.id === action.payload.id) {
             return action.payload;
           } else {
